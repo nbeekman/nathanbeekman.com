@@ -1,0 +1,109 @@
+body {
+  background: #000000;
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* nathan svg */
+#nathan {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  margin: 0 auto;
+  width: 320px;
+  height: 160px;
+  overflow: hidden;
+  clear:both;
+}
+#iePic {
+  display: none;
+}
+
+/* nathan description */
+#nathanDescr {
+  margin-top: 160px;
+  margin-left: 53px;
+  clear: both;
+}
+#nathanDescr h2 {
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 17px;
+}
+
+/* main navigation */
+#mainNav {
+  margin-top: 5px;
+  margin-left: 13px;
+}
+#mainNav ul {
+  list-style: none;
+}
+#mainNav li {
+  float: left;
+  padding: 0;
+  margin-right: 10px;
+  border-right: 1px solid #ffffff;
+  padding-right: 10px;
+}
+#mainNav li:last-of-type {
+  border-right: none;
+  padding-right: 0;
+}
+#mainNav a {
+  text-decoration: none;
+  color: #ffffff;
+}
+#mainNav a:hover {
+  border-bottom: 1px dotted #ffffff;
+}
+
+/* social media links */
+#socialMedia {
+  margin-top: 60px;
+}
+#socialMedia ul{
+  position: relative;
+	list-style: none;
+	padding: 0;
+	margin-left: 53px;
+	clear: both;
+}
+#socialMedia li{
+	float: left;
+	margin-right: 22px;
+}
+#socialMedia li img{
+	width: 35px;
+	height: 35px;
+	border: none;
+} 
+#socialMedia li img:hover { 
+	opacity: 1; 
+	-webkit-box-shadow: 0px 0px 20px rgba(255,255,255,0.8); 
+	-moz-box-shadow: 0px 0px 20px rgba(255,255,255,0.8); 
+	box-shadow: 0px 0px 20px rgba(255,255,255,0.8); 
+}
+
+/* if user is using anything lower than ie9 */
+.lt-ie9 #iePic {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+/* fade in styles */
+.opacity {
+  opacity: 0;
+}
+.fadeIn {
+  -webkit-transition: all 3.5s ease; 
+	-moz-transition: all 3.5s ease; 
+	-o-transition: all 3.5s ease;
+  opacity: 1;
+}
