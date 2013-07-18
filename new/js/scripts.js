@@ -12,7 +12,7 @@ $(function() {
     var startOver, movingmouse = false;
     var hasFinished = false;
     var clearT = function() {
-      t = 0;
+      //t = 0;
       setEnding(fresh, 0);
       startOver = _.after(60, clearT);
     };
@@ -57,18 +57,17 @@ $(function() {
         })
         .bind('update', function() {
 
-          /*if (movingmouse) {
+          if (movingmouse) {
             return;
-          }*/
+          }
           if (hasFinished == false) {
           
             if (t < 0.9999) {
               t += 0.00625;
             } else {
               hasFinished = true;
-              /*startOver();*/
+              startOver();
             }
-          
             setEnding(fresh, t);
           }
         }).play();
@@ -79,10 +78,16 @@ $(function() {
       if (hasFinished == true) {
         var rect = fresh.getBoundingClientRect();
         movingmouse = true;
-        t = cmap(e.clientX-(window.innerWidth/3.75)+320, rect.left, rect.right, 0, 1);
+        t = cmap(e.clientX-(window.innerWidth/3.3)+320, rect.left, rect.right, 0, 1);
         setEnding(fresh, t);
         stopMouse();
+        setTimeout(finishAnimation, 5000);
       }
+    }
+    
+    function finishAnimation() {
+      hasFinished = false;
+      startOver();
     }
 
     function setEnding(group, t) {
@@ -146,6 +151,29 @@ var lockTouchScreen = function( isLocked ) {
 lockTouchScreen( isLocked = true );
 */
 
+/*
+(function() {
+    var mousePos;
+    window.onmousemove = handleMouseMove;
+    setInterval(getMousePosition, 100); // setInterval repeats every X ms
+    function handleMouseMove(event) {
+      event = event || window.event; // IE-ism
+      mousePos = {
+        x: event.clientX,
+        y: event.clientY
+      };
+    }
+    function getMousePosition() {
+      var pos = mousePos;
+      if (!pos) {
+        // We haven't seen any movement yet
+      }
+      else {
+        // Use pos.x and pox.y
+      }
+    }
+})();
+*/
 
 /* fade in on text below logo */
 function addClass() {

@@ -2,13 +2,29 @@ body {
   background: #000000;
   color: #ffffff;
   font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  max-width: 960px;
+}
+.hidden {
+  display: none;
+}
+.active {
+  background-color: #333333;
+}
+
+/* side menu */
+#sideMenu {
+  position: fixed;
+  padding-top: 10px;
+  margin: -22px 0 0 -30px;
 }
 
 /* nathan svg */
 #nathan {
   position: absolute;
-  top: 20px;
-  left: 0;
+  top: 28px;
+  left: -7px;
   margin: 0 auto;
   width: 320px;
   height: 160px;
@@ -33,56 +49,118 @@ body {
 
 /* main navigation */
 #mainNav {
-  margin-top: 5px;
+  margin-top: 35px;
   margin-left: 13px;
+  text-transform: uppercase;
+  font-size: 90%;
 }
 #mainNav ul {
   list-style: none;
 }
 #mainNav li {
   float: left;
-  padding: 0;
-  margin-right: 10px;
+  padding: 0px 6px;
   border-right: 1px solid #ffffff;
-  padding-right: 10px;
 }
 #mainNav li:last-of-type {
   border-right: none;
-  padding-right: 0;
+  //padding: 0px 7px;
 }
 #mainNav a {
   text-decoration: none;
   color: #ffffff;
 }
-#mainNav a:hover {
-  border-bottom: 1px dotted #ffffff;
+#mainNav li:hover {
+  background-color: #333333;
+}
+
+/* project list */
+#projectList {
+  margin: 90px 0px 0px 13px;
+  text-transform: uppercase;
+}
+#projectList ul {
+  list-style: none;
+}
+#projectList li {
+  padding: 5px 0px 5px 5px;
+  border-top: 1px solid #ffffff;
+  width: 200px;
+}
+#projectList li:last-of-type {
+  border-bottom: 1px solid #ffffff;
+}
+#projectList li:hover {
+  background-color: #333333;
+}
+#projectList a {
+  text-decoration: none;
+  color: #ffffff;
+  height: 100%;
+  width: 100%;
+  display: block;
 }
 
 /* social media links */
 #socialMedia {
-  margin-top: 60px;
+  margin-top: 53px;
+  margin-left: 53px;
 }
 #socialMedia ul{
   position: relative;
 	list-style: none;
 	padding: 0;
-	margin-left: 53px;
 	clear: both;
 }
 #socialMedia li{
 	float: left;
-	margin-right: 22px;
+	margin-right: 19px;
 }
 #socialMedia li img{
-	width: 35px;
-	height: 35px;
+	width: 40px;
+	height: 40px;
 	border: none;
-} 
-#socialMedia li img:hover { 
-	opacity: 1; 
-	-webkit-box-shadow: 0px 0px 20px rgba(255,255,255,0.8); 
-	-moz-box-shadow: 0px 0px 20px rgba(255,255,255,0.8); 
-	box-shadow: 0px 0px 20px rgba(255,255,255,0.8); 
+}
+#socialMedia li:first-of-type img {
+  width: 30px;
+  height: 30px;
+  padding-top: 5px;
+}
+#socialMedia li:first-of-type {
+  margin-right: 25px;
+}
+#socialMedia li:last-of-type img {
+  width: 35px;
+  height: 35px;
+}
+
+/* main content area */
+#content {
+  position: relative;
+  margin-left: 240px;
+  padding: 15px 25px 10px 10px;
+  color: #000000;
+}
+#content h2 {
+  color: #000000;
+  margin-top: 0;
+  text-transform: uppercase;
+}
+#content section {
+  background-color: #ffffff;
+  margin: 0;
+  margin-bottom: 10px;
+  padding: 10px 22px 0px 22px;
+}
+
+#currentExperiment {
+  height: 100%;
+}
+#experimentCanvas {
+  background-color: #333333;
+  height: 480px;
+  width: 640px;
+  margin: 0 auto;
 }
 
 /* if user is using anything lower than ie9 */
