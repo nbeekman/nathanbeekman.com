@@ -2,7 +2,7 @@ body {
   background: #000000;
   color: #ffffff;
   font-family: 'Roboto', sans-serif;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   max-width: 960px;
 }
@@ -11,6 +11,10 @@ body {
 }
 .active {
   background-color: #333333;
+}
+h1,h2,h3,h4,h5,h6 {
+  font-weight: normal;
+  text-transform: uppercase;
 }
 
 /* side menu */
@@ -32,6 +36,11 @@ body {
   clear:both;
 }
 #iePic {
+  position: relative;
+  left:60px;
+  top: 8px;
+  width: 200px;
+  height: 135px;
   display: none;
 }
 
@@ -43,7 +52,6 @@ body {
 }
 #nathanDescr h2 {
   font-weight: 900;
-  text-transform: uppercase;
   font-size: 17px;
 }
 
@@ -64,7 +72,6 @@ body {
 }
 #mainNav li:last-of-type {
   border-right: none;
-  //padding: 0px 7px;
 }
 #mainNav a {
   text-decoration: none;
@@ -103,7 +110,7 @@ body {
 
 /* social media links */
 #socialMedia {
-  margin-top: 53px;
+  margin-top: 38px;
   margin-left: 53px;
 }
 #socialMedia ul{
@@ -120,6 +127,13 @@ body {
 	width: 40px;
 	height: 40px;
 	border: none;
+	margin-top: 15px;
+	-webkit-transition: margin 0.5s ease-out;
+  -moz-transition: margin 0.5s ease-out;
+  -o-transition: margin 0.5s ease-out;
+}
+#socialMedia li img:hover {
+  margin-top: 5px;
 }
 #socialMedia li:first-of-type img {
   width: 30px;
@@ -140,27 +154,45 @@ body {
   margin-left: 240px;
   padding: 15px 25px 10px 10px;
   color: #000000;
+  height: 640px;
 }
 #content h2 {
   color: #000000;
   margin-top: 0;
-  text-transform: uppercase;
+  font-weight: normal;
+  font-size: 130%;
 }
 #content section {
   background-color: #ffffff;
   margin: 0;
   margin-bottom: 10px;
-  padding: 10px 22px 0px 22px;
-}
-
-#currentExperiment {
+  padding: 10px 22px;
   height: 100%;
 }
+
 #experimentCanvas {
   background-color: #333333;
   height: 480px;
   width: 640px;
   margin: 0 auto;
+}
+
+/* about */
+#about img {
+  width: 50%;
+  margin: 0px 50px 20px 0px;
+  float: left;
+}
+#about ul {
+  list-style: none;
+}
+
+#skills {
+  margin-top: -5px;
+}
+
+#story {
+  clear: both;
 }
 
 /* if user is using anything lower than ie9 */
