@@ -1,5 +1,42 @@
+/* setting up the cookie so users don't have to seem animation past their first visit */
+function createCookie(name,value,days) {
+	if (days) {
+		var date = new Date();
+		date.setTime(date.getTime()+(days*24*60*60*1000));
+		var expires = "; expires="+date.toGMTString();
+	}
+	else var expires = "";
+	document.cookie = name+"="+value+expires+"; path=/";
+}
+function readCookie(name) {
+	var nameEQ = name + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0;i < ca.length;i++) {
+		var c = ca[i];
+		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+	}
+	return null;
+}
+function eraseCookie(name) {
+	createCookie(name,"",-1);
+}
+
+
 /* two.js animation */
 $(function() {
+
+  //create cookie if none found
+  var cookieValue = readCookie('nathanLogo');
+  if(cookieValue != 'here'){
+    createCookie('nathanLogo', 'here', 30);
+  }
+  /*
+else{
+    console.log('cookie found. its value is "' + cookieValue + '"');
+    //eraseCookie('nathanLogo');
+  }
+*/
 
   var two = new Two({
     fullscreen: false
@@ -8,7 +45,13 @@ $(function() {
   $.get('img/nathanOutline.svg', function(doc) {
 
     var fresh = two.interpret($(doc).find('svg')[0]);
-    var t = 0;
+    
+    //if cookie is present, don't do the animation
+    if(cookieValue == "here"){
+      var t = 1;
+    }else{
+      var t = 0;
+    }
     var startOver, movingmouse = false;
     var hasFinished = false;
     var clearT = function() {
@@ -151,37 +194,18 @@ var lockTouchScreen = function( isLocked ) {
 lockTouchScreen( isLocked = true );
 */
 
-/*
-(function() {
-    var mousePos;
-    window.onmousemove = handleMouseMove;
-    setInterval(getMousePosition, 100); // setInterval repeats every X ms
-    function handleMouseMove(event) {
-      event = event || window.event; // IE-ism
-      mousePos = {
-        x: event.clientX,
-        y: event.clientY
-      };
-    }
-    function getMousePosition() {
-      var pos = mousePos;
-      if (!pos) {
-        // We haven't seen any movement yet
-      }
-      else {
-        // Use pos.x and pox.y
-      }
-    }
-})();
-*/
-
 /* fade in on text below logo */
 function addClass() {
-  //var dev = document.getElementById("dev");
   var descr = document.getElementById("nathanDescr");
-  //dev.className += " fadeIn";
-  descr.className += " fadeIn";
-  //console.log("class added");
+  
+  if(cookieValue = 'true'){
+    descr.className = "";
+  }else{
+    descr.className += " fadeIn";
+  }
 }
-
-setTimeout(addClass, 3000);
+if(cookieValue = 'true'){
+  addClass();
+}else{
+  setTimeout(addClass, 3000);
+}
