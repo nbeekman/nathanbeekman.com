@@ -1,5 +1,5 @@
 body {
-  background: #000000;
+  background: #000000 url('/img/blackOrchid.png') repeat;
   color: #ffffff;
   font-family: 'Roboto', sans-serif;
   margin: 0 auto;
@@ -15,6 +15,7 @@ body {
 h1,h2,h3,h4,h5,h6 {
   font-weight: normal;
   text-transform: uppercase;
+  color: #ffffff;
 }
 
 /* side menu */
@@ -57,17 +58,16 @@ h1,h2,h3,h4,h5,h6 {
 
 /* main navigation */
 #mainNav {
-  margin-top: 35px;
-  margin-left: 13px;
+  margin-top: 15px;
+  margin-left: 35px;
   text-transform: uppercase;
-  font-size: 90%;
 }
 #mainNav ul {
   list-style: none;
 }
 #mainNav li {
   float: left;
-  padding: 0px 6px;
+  padding: 0px 10px;
   border-right: 1px solid #ffffff;
 }
 #mainNav li:last-of-type {
@@ -83,7 +83,7 @@ h1,h2,h3,h4,h5,h6 {
 
 /* project list */
 #projectList {
-  margin: 90px 0px 0px 13px;
+  margin: 60px 0px 0px 13px;
   text-transform: uppercase;
 }
 #projectList ul {
@@ -110,8 +110,13 @@ h1,h2,h3,h4,h5,h6 {
 
 /* social media links */
 #socialMedia {
-  margin-top: 38px;
+  margin-top: 51px;
   margin-left: 53px;
+}
+#socialMedia h2 {
+  font-size: 95%;
+  margin: 0;
+  margin-bottom: -20px;
 }
 #socialMedia ul{
   position: relative;
@@ -153,17 +158,15 @@ h1,h2,h3,h4,h5,h6 {
   position: relative;
   margin-left: 240px;
   padding: 15px 25px 10px 10px;
-  color: #000000;
+  color: #666666;
   height: 640px;
 }
 #content h2 {
-  color: #000000;
   margin-top: 0;
-  font-weight: normal;
   font-size: 130%;
 }
 #content section {
-  background-color: #ffffff;
+  background-color: #1a1a1a;
   margin: 0;
   margin-bottom: 10px;
   padding: 10px 22px;
@@ -179,16 +182,35 @@ h1,h2,h3,h4,h5,h6 {
 
 /* about */
 #about img {
-  width: 50%;
-  margin: 0px 50px 20px 0px;
+  height: 298px;
+  margin: 0px 100px 20px 70px;
   float: left;
 }
 #about ul {
   list-style: none;
 }
+#about a {
+  text-decoration: none;
+  color: #ffffff;
+}
+#about p {
+  text-align: justify;
+}
 
 #skills {
   margin-top: -5px;
+  margin-bottom: 25px;
+}
+#skillList h4,
+#skillList p {
+  margin: 0;
+  padding: 0;
+}
+#skillList p {
+  padding-bottom: 10px;
+}
+#skillList li:last-of-type p {
+  padding-bottom: 0;
 }
 
 #story {
