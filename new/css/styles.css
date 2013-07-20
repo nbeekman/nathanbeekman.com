@@ -11,6 +11,8 @@ body {
 }
 .active {
   background-color: #333333;
+  pointer-events: none;
+  cursor: default;
 }
 h1,h2,h3,h4,h5,h6 {
   font-weight: normal;
