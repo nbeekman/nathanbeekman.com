@@ -29,7 +29,7 @@ $(function() {
   //create cookie if none found
   var cookieValue = readCookie('nathanLogo');
   if(cookieValue != 'here'){
-    createCookie('nathanLogo', 'here', 30);
+    createCookie('nathanLogo', 'here', 1);
   }
   /*
 else{
