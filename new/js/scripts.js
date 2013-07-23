@@ -42,7 +42,7 @@ else{
     fullscreen: false
   }).appendTo(document.getElementById("nathan"));
 
-  $.get('img/nathanOutline.svg', function(doc) {
+  $.get('/img/nathanOutline.svg', function(doc) {
 
     var fresh = two.interpret($(doc).find('svg')[0]);
     
@@ -198,7 +198,7 @@ lockTouchScreen( isLocked = true );
 function addClass() {
   var descr = document.getElementById("nathanDescr");
   
-  if(cookieValue = 'true'){
+  if(cookieValue == 'true'){
     descr.className = "";
   }else{
     descr.className += " fadeIn";

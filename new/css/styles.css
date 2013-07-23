@@ -22,7 +22,7 @@ h1,h2,h3,h4,h5,h6 {
 
 /* side menu */
 #sideMenu {
-  position: fixed;
+  position: absolute;
   padding-top: 10px;
   margin: -22px 0 0 -30px;
 }
@@ -164,8 +164,12 @@ h1,h2,h3,h4,h5,h6 {
   height: 640px;
 }
 #content h2 {
-  margin-top: 0;
+  margin: 0 0 20px 0;
   font-size: 130%;
+}
+#content a {
+  color: #ffffff;
+  text-decoration: none;
 }
 #content section {
   background-color: #1a1a1a;
@@ -175,12 +179,39 @@ h1,h2,h3,h4,h5,h6 {
   height: 100%;
 }
 
+/* rorschach */
 #experimentCanvas {
   background-color: #333333;
   height: 480px;
   width: 640px;
   margin: 0 auto;
 }
+#head {
+  background: #333333 url("/img/rorschachBlank.png") no-repeat center center;
+  height: 480px;
+  width: 640px;
+  position: absolute;
+}
+#eyes {
+  position: absolute;
+  top:30px;
+  left:-130px;
+}
+#mouth {
+  position: absolute;
+  top:160px;
+  left:-130px;
+}
+#cheeks {
+  position: absolute;
+  top:100px;
+  left:-130px;
+}
+.scale {
+  transform:scale(0.3,0.3);
+  -webkit-transform:scale(0.3,0.3);
+}
+
 
 /* about */
 #about img {
@@ -190,10 +221,6 @@ h1,h2,h3,h4,h5,h6 {
 }
 #about ul {
   list-style: none;
-}
-#about a {
-  text-decoration: none;
-  color: #ffffff;
 }
 #about p {
   text-align: justify;
@@ -217,6 +244,84 @@ h1,h2,h3,h4,h5,h6 {
 
 #story {
   clear: both;
+}
+
+/* projects */
+#project p {
+  margin-top: 0;
+}
+#siteButton {
+  position: absolute;
+  bottom: 15px;
+  right: 50px;
+  background-color: #333333;
+  padding: 10px;
+}
+
+/* responsive slides */
+.rslides {
+  position: relative;
+  list-style: none;
+  overflow: hidden;
+  width: 60%;
+  padding: 0;
+  margin: 0 auto;
+}
+.rslides li {
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  display: none;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+.rslides li:first-child {
+  position: relative;
+  display: block;
+  float: left;
+}
+.rslides img {
+  display: block;
+  height: auto;
+  float: left;
+  width: 100%;
+  border: 0;
+}
+.rslides_tabs {
+  list-style: none;
+  margin: 0 auto 10px;
+  max-width: 385px;
+  padding: 10px 0;
+  text-align: center;
+  width: 100%;
+}
+.rslides_tabs li {
+  display: inline;
+  float: none;
+  margin-right: 1px;
+}
+.rslides_tabs a {
+  width: auto;
+  line-height: 16px;
+  font-size: 12px;
+  padding: 0px 7px;
+  margin: 0 5px;
+  height: auto;
+  display: inline;
+  color: #333333;
+  background-color: #333333;
+  text-decoration: none;
+}
+.rslides_tabs a:hover {
+  border: 0;
+  background-color: #333333;
+}
+.rslides_tabs li:first-child {
+  margin-left: 0;
+}
+.rslides_tabs .rslides_here a {
+  background: #ffffff;
+  color: #ffffff;
 }
 
 /* if user is using anything lower than ie9 */

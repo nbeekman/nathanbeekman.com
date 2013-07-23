@@ -30,16 +30,16 @@
       <div id="projectList">
         <h2 class="hidden">Project List</h2>
         <ul>
-          <li class="active"><a href="#">Current Experiment</a></li>
-          <li><a href="project.html">XBox Kinect</a></li>
-          <li><a href="#">Marco</a></li>
-          <li><a href="#">Colours</a></li>
-          <li><a href="#">Cabinet of Creatives</a></li>
-          <li><a href="#">Nike</a></li>
-          <li><a href="#">Ritz Carlton</a></li>
-          <li><a href="#">Made Collection</a></li>
-          <li><a href="#">Jobs&#64;UNI</a></li>
-          <li><a href="#">Jamba Juice</a></li>
+          <li class="active"><a href="/">Current Experiment</a></li>
+          <li><a href="projects/xbox.html">XBox Kinect</a></li>
+          <li><a href="projects/marco.html">Marco</a></li>
+          <li><a href="projects/colours.html">Colours</a></li>
+          <li><a href="projects/cabinet.html">Cabinet of Creatives</a></li>
+          <li><a href="projects/nike.html">Nike</a></li>
+          <li><a href="projects/jamba.html">Jamba Juice</a></li>
+          <li><a href="projects/ritz.html">Ritz Carlton</a></li>
+          <li><a href="projects/made.html">Made Collection</a></li>
+          <li><a href="projects/uni.html">Jobs&#64;UNI</a></li>
         </ul>
       </div>
       
@@ -57,15 +57,22 @@
     <div id="content">
       <h1 class="hidden">Content</h1>
       <section id="currentExperiment">
-        <h2>Current Experiment</h2>
-        <div id="experimentCanvas"></div>
-        <p>Pug asymmetrical umami wolf sustainable, quinoa wayfarers disrupt Wes Anderson authentic cliche. Quinoa gentrify readymade, Etsy food truck fanny pack next level sartorial pug. Aesthetic bicycle rights fixie, leggings readymade tofu small batch.</p>
+        <h2>Current Experiment - Rorschach</h2>
+        <div id="experimentCanvas">
+          <div id="head">
+            <div id="eyes" class="scale"></div>
+            <div id="mouth" class="scale"></div>
+            <div id="cheeks" class="scale"></div>
+          </div>
+        </div>
+        <p>Using Two.js, I was able to morph the vertices of circles and ellipses. This instantly reminded me of Rorschach from Watchmen. Together, with a picture of his hat, mask, and some shapes I distorted, Rorschach came alive.</p>
       </section>
     </div>
     
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <script src="js/two.js"></script>
     <script src="js/scripts.js"></script>
+    <script src="js/rorschach.js"></script>
     <script type="text/javascript">
   			var _gaq = _gaq || [];
   			_gaq.push(['_setAccount', 'UA-32814352-1']);
