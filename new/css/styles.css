@@ -101,6 +101,9 @@ h1,h2,h3,h4,h5,h6 {
 }
 #projectList li:hover {
   background-color: #333333;
+  -webkit-transition: background-color 0.2s ease-in;
+  -moz-transition: background-color 0.2s ease-in;
+  -o-transition: background-color 0.2s ease-in;
 }
 #projectList a {
   text-decoration: none;
@@ -162,6 +165,15 @@ h1,h2,h3,h4,h5,h6 {
   padding: 15px 25px 10px 10px;
   color: #666666;
   height: 640px;
+  opacity: 0;
+  -webkit-transition: opacity 0.5s ease-in;
+  -moz-transition: opacity 0.5s ease-in;
+  -o-transition: opacity 0.5s ease-in;
+  -ms-transition: opacity 0.5s ease-in;
+  transition: opacity 0.5s ease-in;
+}
+#content.load {
+  opacity: 1;
 }
 #content h2 {
   margin: 0 0 20px 0;
@@ -178,6 +190,9 @@ h1,h2,h3,h4,h5,h6 {
   padding: 10px 22px;
   height: 100%;
 }
+#content p {
+  text-align: justify;
+}
 
 /* rorschach */
 #experimentCanvas {
@@ -185,6 +200,13 @@ h1,h2,h3,h4,h5,h6 {
   height: 480px;
   width: 640px;
   margin: 0 auto;
+}
+#gitButton {
+  position: absolute;
+  bottom: 15px;
+  right: 50px;
+  background-color: #333333;
+  padding: 5px 7px;
 }
 #head {
   background: #333333 url("/img/rorschachBlank.png") no-repeat center center;
@@ -216,7 +238,7 @@ h1,h2,h3,h4,h5,h6 {
 /* about */
 #about img {
   height: 298px;
-  margin: 0px 100px 20px 70px;
+  margin: 0px 135px 20px 0px;
   float: left;
 }
 #about ul {
@@ -344,5 +366,8 @@ h1,h2,h3,h4,h5,h6 {
   -webkit-transition: all 3.5s ease; 
 	-moz-transition: all 3.5s ease; 
 	-o-transition: all 3.5s ease;
+  opacity: 1;
+}
+.load {
   opacity: 1;
 }

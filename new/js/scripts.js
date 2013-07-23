@@ -209,3 +209,9 @@ if(cookieValue = 'true'){
 }else{
   setTimeout(addClass, 3000);
 }
+
+function loadClass() {
+  var content = document.getElementById("content");
+  content.className = "load"
+}
+loadClass();
