@@ -26,6 +26,10 @@ h1,h2,h3,h4,h5,h6 {
   padding-top: 10px;
   margin: -22px 0 0 -30px;
 }
+#sideMenu a {
+  text-decoration: none;
+  color: #ffffff;
+}
 
 /* nathan svg */
 #nathan {

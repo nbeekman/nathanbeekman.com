@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="user-scalable=no">
     <link rel="shortcut icon" href="img/favicon.ico" />
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,900' rel='stylesheet' type='text/css'>
   </head>
   <body>
@@ -32,16 +32,16 @@
       <div id="projectList">
         <h2 class="hidden">Project List</h2>
         <ul>
-          <li><a href="experiments">Current Experiment</a></li>
-          <li><a href="projects/xbox.html">XBox Kinect</a></li>
-          <li><a href="projects/marco.html">Marco</a></li>
-          <li><a href="projects/colours.html">Colours</a></li>
-          <li><a href="projects/cabinet.html">Cabinet of Creatives</a></li>
-          <li><a href="projects/nike.html">Nike</a></li>
-          <li><a href="projects/jamba.html">Jamba Juice</a></li>
-          <li><a href="projects/ritz.html">Ritz Carlton</a></li>
-          <li><a href="projects/made.html">Made Collection</a></li>
-          <li><a href="projects/uni.html">Jobs&#64;UNI</a></li>
+          <li class="active"><a href="experiments/">Current Experiment</a></li>
+          <li><a href="/projects/xbox.html">XBox Kinect</a></li>
+          <li><a href="/projects/marco.html">Marco</a></li>
+          <li><a href="/projects/colours.html">Colours</a></li>
+          <li><a href="/projects/cabinet.html">Cabinet of Creatives</a></li>
+          <li><a href="/projects/nike.html">Nike</a></li>
+          <li><a href="/projects/jamba.html">Jamba Juice</a></li>
+          <li><a href="/projects/ritz.html">Ritz Carlton</a></li>
+          <li><a href="/projects/made.html">Made Collection</a></li>
+          <li><a href="/projects/uni.html">Jobs&#64;UNI</a></li>
         </ul>
       </div>
       
@@ -58,15 +58,24 @@
     
     <div id="content">
       <h1 class="hidden">Content</h1>
-      <section id="home">
-        <h2>Home</h2>
-        <p>Descr</p>
+      <section id="currentExperiment">
+        <h2>Current Experiment - Rorschach</h2>
+        <div id="experimentCanvas">
+          <div id="head">
+            <div id="eyes" class="scale"></div>
+            <div id="mouth" class="scale"></div>
+            <div id="cheeks" class="scale"></div>
+          </div>
+        </div>
+        <p>Using Two.js, I was able to morph the vertices of circles and ellipses. This instantly reminded me of Rorschach from Watchmen. Together, with a picture of his hat, mask, and some shapes I distorted, Rorschach came alive.</p>
+        <a id="gitButton" href="https://github.com/nbeekman/rorschach" target="_blank">View Code</a>
       </section>
     </div>
     
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-    <script src="js/two.js"></script>
-    <script src="js/scripts.js"></script>
+    <script src="/js/two.js"></script>
+    <script src="/js/scripts.js"></script>
+    <script src="/js/rorschach.js"></script>
     <script type="text/javascript">
   			var _gaq = _gaq || [];
   			_gaq.push(['_setAccount', 'UA-32814352-1']);
