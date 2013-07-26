@@ -253,6 +253,9 @@ h1,h2,h3,h4,h5,h6 {
   background-color: #333333;
   padding: 5px 7px;
 }
+#ieMessage {
+  display: none;
+}
 #head {
   background: #333333 url("/img/rorschachBlank.png") no-repeat center center;
   height: 480px;
@@ -407,6 +410,12 @@ h1,h2,h3,h4,h5,h6 {
   right: 0;
   margin: 0 auto;
   margin-top: 30px;
+}
+.lt-ie9 #head {
+  display: none;
+}
+.lt-ie9 #ieMessage {
+  display: block;
 }
 
 
