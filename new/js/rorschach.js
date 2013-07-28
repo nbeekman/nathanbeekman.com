@@ -1,10 +1,17 @@
+var winWidth = $(window).width();// alert(winWidth);
+
+/* EYES */
 $(function() {
   var twoFace = new Two({
     fullscreen: false
   }).appendTo(document.getElementById("eyes"));
 
   Two.Resolution = 32;
-  twoFace.width = 960;
+  if(winWidth <= 768){
+    twoFace.width = 680;
+  }else{
+    twoFace.width = 960;
+  }
   twoFace.height = 480;
   
   var blob = twoFace.makeCircle(230, twoFace.height / 2, twoFace.height / 3);
@@ -54,13 +61,19 @@ $(function() {
   }
 });
 
+
+/* MOUTH */
 $(function() {
   var twoFace = new Two({
     fullscreen: false
   }).appendTo(document.getElementById("mouth"));
 
   Two.Resolution = 32;
-  twoFace.width = 960;
+  if(winWidth <= 768){
+    twoFace.width = 680;
+  }else{
+    twoFace.width = 960;
+  }
   twoFace.height = 480;
   
   var blob = twoFace.makeEllipse(315, twoFace.height / 2, twoFace.height, twoFace.height / 3);
@@ -110,13 +123,19 @@ $(function() {
   }
 });
 
+
+/* CHEEKS */
 $(function() {
   var twoFace = new Two({
     fullscreen: false
   }).appendTo(document.getElementById("cheeks"));
 
   Two.Resolution = 32;
-  twoFace.width = 960;
+  if(winWidth <= 768){
+    twoFace.width = 680;
+  }else{
+    twoFace.width = 960;
+  }
   twoFace.height = 480;
   
   var blob = twoFace.makeCircle(150, twoFace.height / 2, twoFace.height / 3);

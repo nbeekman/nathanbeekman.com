@@ -226,6 +226,7 @@ h1,h2,h3,h4,h5,h6 {
 #home p {
   font-size: 18px;
   margin: 0 0 5px 0;
+  padding: 0 40px;
 }
 #home p:last-of-type {
   padding-bottom: 15px;
@@ -233,50 +234,6 @@ h1,h2,h3,h4,h5,h6 {
 }
 .drop {
   opacity: 0;
-}
-
-
-/* rorschach */
-#experimentCanvas {
-  background-color: #333333;
-  height: 480px;
-  width: 640px;
-  margin: 0 auto;
-}
-#gitButton {
-  position: absolute;
-  bottom: 15px;
-  right: 50px;
-  background-color: #333333;
-  padding: 5px 7px;
-}
-#ieMessage {
-  display: none;
-}
-#head {
-  background: #333333 url("/img/rorschachBlank.png") no-repeat center center;
-  height: 480px;
-  width: 640px;
-  position: absolute;
-}
-#eyes {
-  position: absolute;
-  top:30px;
-  left:-130px;
-}
-#mouth {
-  position: absolute;
-  top:160px;
-  left:-130px;
-}
-#cheeks {
-  position: absolute;
-  top:100px;
-  left:-130px;
-}
-.scale {
-  transform:scale(0.3,0.3);
-  -webkit-transform:scale(0.3,0.3);
 }
 
 
@@ -314,6 +271,49 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 
+/* rorschach */
+#experimentCanvas {
+  background-color: #333333;
+  height: 480px;
+  margin: 0 auto;
+}
+#gitButton {
+  position: absolute;
+  bottom: 15px;
+  right: 50px;
+  background-color: #333333;
+  padding: 5px 7px;
+}
+#ieMessage {
+  display: none;
+}
+#head {
+  background: url("/img/rorschachBlank.png") no-repeat center center;
+  height: 480px;
+  width: 640px;
+  position: absolute;
+}
+#eyes {
+  position: absolute;
+  top:30px;
+  left:-130px;
+}
+#mouth {
+  position: absolute;
+  top:160px;
+  left:-130px;
+}
+#cheeks {
+  position: absolute;
+  top:100px;
+  left:-130px;
+}
+.scale {
+  transform:scale(0.3,0.3);
+  -webkit-transform:scale(0.3,0.3);
+}
+
+
 /* projects */
 #project p {
   margin-top: 0;
@@ -335,7 +335,8 @@ h1,h2,h3,h4,h5,h6 {
   position: relative;
   list-style: none;
   overflow: hidden;
-  width: 60%;
+  //width: 60%;
+  width: 380px;
   padding: 0;
   margin: 0 auto;
 }
@@ -395,6 +396,10 @@ h1,h2,h3,h4,h5,h6 {
   background: #ffffff;
   color: #ffffff;
 }
+.rslides video {
+  width:380px;
+  height:380px;
+}
 
 
 /* if user is using anything lower than ie9 */
@@ -428,4 +433,56 @@ h1,h2,h3,h4,h5,h6 {
 }
 .load {
   opacity: 1;
+}
+
+
+/* ---------------------------------------------------------------------- */
+/*	Media Queries
+/* ---------------------------------------------------------------------- */
+
+/* Smaller than standard 960 (devices and browsers) */
+@media only screen and (max-width: 959px) {
+  
+}
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+  /* social media */
+  #socialMedia {
+    margin-top: 89px;
+  }
+  /* content */
+  #content {
+    height: 670px;
+  }
+  /* about */
+  #about img {
+    margin: 0 65px 20px 0;
+  }
+  /* rorschach*/
+  #head {
+    width: 450px;
+  }
+  /* responsive slides */
+  .rslides {
+    width: 340px;
+  }
+  .rslides video {
+    height: 336px;
+  }
+}
+
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px) {
+  
+}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  
+}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+  
 }
