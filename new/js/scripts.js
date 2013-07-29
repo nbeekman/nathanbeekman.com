@@ -218,30 +218,25 @@ loadClass();
 
 
 /* mobile menu */
-// Listen to click on headline-link
-$('.accordion-item h1 a').click(function(e) {
-  // prevent auto scrolling to id
-  e.preventDefault();
+
+$('.accordion-item h2').click(function(e) {
   
+  $('#content').addClass('increaseTop');
   // Register the variables for better performance
-  var $parent = $(this).closest('.accordion-item'),
-      $content = $parent.find('.content');
+  var parent = $(this).closest('.accordion-item'),
+      content = parent.find('.content');
 
   // If the clicked section is not the active one
-  if (!$parent.hasClass('current')) {
-
-    // SlideUp "old" and remove class
-    $('.accordion-item.current .content').slideUp()
-      .parent().removeClass('current');
+  if (!parent.hasClass('open')) {
+    // close menu and remove class
+    $('.accordion-item.current .content').parent().removeClass('open');
     
     // Add class and slide down content
-    $parent.addClass('current');
-    $content.slideDown();
-  
-  // If the click was triggered on the currently active section
-  // remove the class and slide up content
-  } else {
-    $parent.removeClass('current');
-    $content.slideUp();
+    parent.addClass('open');
+    $('.content').removeClass('hidden');
+  }else{
+    parent.removeClass('open');
+    $('#content').removeClass('increaseTop');
+    $('.content').addClass('hidden');
   }
 });

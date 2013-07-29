@@ -8,6 +8,7 @@
     <meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <link rel="shortcut icon" href="img/favicon.ico" />
+    <link rel="apple-touch-icon" href="img/appleIcon.png"/>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,900' rel='stylesheet' type='text/css'>
   </head>
@@ -23,20 +24,28 @@
       </a>
       <nav id="mainNav">
         <h2 class="hidden">Main Navigation</h2>
-        <section id="mobileMenu" class="accordion-item">
-          <h1><a href="#experts">Menu</a></h1>
-          <div class="content">
-              <ul>
-                <li>Item 1</li>
-                <li>Item 2</li>
-              </ul>
-          </div>
-        </section>
-        
         <ul>
           <li><a href="about.html">About</a></li>
           <li><a href="NathanBeekmanResume.pdf" target="_blank">Resum&#233;</a></li>
         </ul>
+        
+        <div id="mobileMenu" class="accordion-item">
+          <h2>&#43;Projects</h2>
+          <div class="content hidden">
+            <ul>
+              <li><a href="experiments">Current Experiment</a></li>
+              <li><a href="projects/xbox.html">XBox Kinect</a></li>
+              <li><a href="projects/marco.html">Marco</a></li>
+              <li><a href="projects/colours.html">Colours</a></li>
+              <li><a href="projects/cabinet.html">Cabinet of Creatives</a></li>
+              <li><a href="projects/nike.html">Nike</a></li>
+              <li><a href="projects/jamba.html">Jamba Juice</a></li>
+              <li><a href="projects/ritz.html">Ritz Carlton</a></li>
+              <li><a href="projects/made.html">Made Collection</a></li>
+              <li><a href="projects/smokeproof.html">Smokeproof Press</a></li>
+            </ul>
+          </div>
+        </div>
       </nav>
       
       <div id="projectList">
@@ -68,7 +77,7 @@
     
     <div id="content">
       <h1 class="hidden">Content</h1>
-      <section id="home" onmousedown="fadeOut();" onmouseup="fadeIn();">
+      <section id="home">
         <div id="homeContent">
           <h2>Hey, I&#8217;m Nathan Beekman.</h2>
           <p>I focus on interactive and responsive front-end development.</p>
@@ -79,8 +88,7 @@
     
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <script src="js/two.js"></script>
-    <script src="js/scripts.js"></script>
-    <script src="js/home.js"></script>
+    <script src="js/scripts.min.js"></script>
     <script type="text/javascript">
   			var _gaq = _gaq || [];
   			_gaq.push(['_setAccount', 'UA-32814352-1']);

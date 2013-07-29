@@ -127,26 +127,31 @@ h1,h2,h3,h4,h5,h6 {
 
 
 /* social media links */
-#socialMedia {
+#socialMedia,
+#mobileSocialMedia {
   margin-top: 51px;
   margin-left: 53px;
 }
-#socialMedia h2 {
+#socialMedia h2,
+#mobileSocialMedia h2 {
   font-size: 95%;
   margin: 0;
   margin-bottom: -20px;
 }
-#socialMedia ul{
+#socialMedia ul,
+#mobileSocialMedia ul {
   position: relative;
 	list-style: none;
 	padding: 0;
 	clear: both;
 }
-#socialMedia li{
+#socialMedia li,
+#mobileSocialMedia li {
 	float: left;
 	margin-right: 19px;
 }
-#socialMedia li img{
+#socialMedia li img,
+#mobileSocialMedia li img {
 	width: 40px;
 	height: 40px;
 	border: none;
@@ -155,20 +160,30 @@ h1,h2,h3,h4,h5,h6 {
   -moz-transition: margin 0.5s ease-out;
   -o-transition: margin 0.5s ease-out;
 }
-#socialMedia li img:hover {
+#socialMedia li img:hover,
+#mobileSocialMedia li img:hover {
   margin-top: 5px;
 }
-#socialMedia li:first-of-type img {
+#socialMedia li:first-of-type img,
+#mobileSocialMedia li:first-of-type img {
   width: 30px;
   height: 30px;
   padding-top: 5px;
 }
-#socialMedia li:first-of-type {
-  margin-right: 25px;
+#socialMedia li:first-of-type,
+#mobileSocialMedia li:first-of-type {
+  margin-right: 22px;
 }
-#socialMedia li:last-of-type img {
+#socialMedia li:last-of-type img,
+#mobileSocialMedia li:last-of-type img {
   width: 35px;
   height: 35px;
+}
+#socialMedia li:last-of-type {
+  margin-right: 0;
+}
+#mobileSocialMedia {
+  display: none;
 }
 
 
@@ -312,6 +327,10 @@ h1,h2,h3,h4,h5,h6 {
   transform:scale(0.3,0.3);
   -webkit-transform:scale(0.3,0.3);
 }
+#experimentNote {
+  font-size: 11px;
+  padding-right: 93px;
+}
 
 
 /* projects */
@@ -397,8 +416,8 @@ h1,h2,h3,h4,h5,h6 {
   color: #ffffff;
 }
 .rslides video {
-  width:380px;
-  height:380px;
+  width:376px;
+  height:376px;
 }
 
 
@@ -412,13 +431,16 @@ h1,h2,h3,h4,h5,h6 {
   right: 0;
   margin: 0 auto;
   margin-top: 30px;
+  border: none;
 }
+.lt-ie9 #nathan svg,
 .lt-ie9 #head {
   display: none;
 }
 .lt-ie9 #ieMessage {
   display: block;
 }
+
 
 
 /* fade in styles */
@@ -440,12 +462,13 @@ h1,h2,h3,h4,h5,h6 {
 /*	Media Queries
 /* ---------------------------------------------------------------------- */
 
-/* Smaller than standard 960 (devices and browsers) */
-/*
-@media only screen and (max-width: 959px) {
-  
+/* fixing quirky thing with header text (landscape of iPad) */
+@media only screen and (min-width: 959px) and (orientation: landscape) {
+  /* about */
+  #skills {
+    margin-left: 318px;
+  }
 }
-*/
 
 /* Tablet Portrait size to standard 960 (devices and browsers) */
 @media only screen and (min-width: 768px) and (max-width: 959px) {
@@ -457,9 +480,16 @@ h1,h2,h3,h4,h5,h6 {
   #content {
     height: 670px;
   }
+  /* home */
+  #homeContent p:first-of-type {
+    padding: 0 70px;
+  }
   /* about */
   #about img {
     margin: 0 65px 20px 0;
+  }
+  #skills {
+    margin-left: 248px;
   }
   /* rorschach*/
   #head {
@@ -474,6 +504,18 @@ h1,h2,h3,h4,h5,h6 {
   }
 }
 
+/* Tablets and below don't show svg */
+@media only screen and (max-width: 768px) {
+  /* nathan svg */
+  #nathan svg {
+    display: none;
+  }
+  #iePic {
+    display: block;
+  }
+}
+
+
 /* All Mobile Sizes (devices and browser) */
 @media only screen and (max-width: 767px) {
   /* social media */
@@ -485,21 +527,36 @@ h1,h2,h3,h4,h5,h6 {
     height: 772px;
     font-size: 15px;
   }
+  /* home */
+  #homeContent p:first-of-type {
+    padding-right: 0 70px;
+  }
   /* about */
   #about img {
     margin: 0 7px 0 0;
     height: 197px;
   }
-  #about h2,h3,h4 {
-    font-size: 90%;
+  #about h2 {
+    font-size: 95% !important;
+  }
+  #about h3,
+  #about h4 {
+    font-size: 89% !important;
+  }
+  #about p {
+    font-size: 10px;
+  }
+  #skills {
+    margin-bottom: -5px;
   }
   #skillList {
     padding-left: 0;
   }
   #skillList p {
-    font-size: 12px;
+    font-size: 11px !important;
   }
-  #skillList li:last-of-type {
+  #skills,
+  #skillList li {
     margin-left: 128px;
   }
   #story {
@@ -524,7 +581,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
-@media only screen and (min-width: 480px) and (max-width: 767px) {
+@media only screen and (min-width: 481px) and (max-width: 767px) {
   /* social media */
   #socialMedia {
     margin-top: 139px;
@@ -552,7 +609,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 /* Fix for About */
-@media only screen and (min-width: 480px) and (max-width: 538px) {
+@media only screen and (min-width: 481px) and (max-width: 538px) {
   #skillList li:nth-of-type(3n),
   #skillList li:nth-of-type(4n),
   #skillList li:last-of-type {
@@ -560,40 +617,62 @@ h1,h2,h3,h4,h5,h6 {
   }
 }
 
-/* Fix for Projects */
-@media only screen and (min-width: 481px) and (max-width: 568px) {
-  
-}
-
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
-@media only screen and (max-width: 479px) {
+@media only screen and (max-width: 480px) {
   /* menu */
-  #sideMenu {
-    
+  #mainNav {
+    margin-top: -5px;
   }
-  #projectList,
-  #socialMedia {
+  #projectList {
     display: none;
   }
+  
   /* mobile menu */
   #mobileMenu {
     display: block;
     margin-left: 18px;
+    padding-top: 20px;
   }
-  .accordion-item h1 a {
+  #mobileMenu ul {
+    width: 200px;
+    margin-left: -39px;
+  }
+  #mobileMenu li {
+    border: none;
+    border-bottom: 1px solid #ffffff;
+    width: 100%;
+    padding: 5px;
+  }
+  .accordion-item h2 {
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+  }
+  .accordion-item a {
     text-decoration: none;
   }
-  .accordion-item .content {
-    display: none;  
+  .increaseTop {
+    top: 580px !important;
   }
-  :target .content {
-    display: block;
+  
+  /* social media icons */
+  #socialMedia {
+    margin-top: 0;
+    position: absolute;
+    top:0;
+    right:-97px;
+  }
+  #socialMedia h2 {
+    display: none;
+  }
+  #socialMedia li {
+    float: none;
   }
   
   /* content */
   #content {
     position: absolute;
-    top: 280px;
+    top: 250px;
     margin-left: 0;
     padding: 0;
     height: inherit;
@@ -607,12 +686,19 @@ h1,h2,h3,h4,h5,h6 {
     margin-top: 0;
   }
   /* about */
-  #skillList li:nth-of-type(4n) {
-    margin-left: 128px;
+  #about p {
+    font-size: 16px;
   }
   /* current experiment */
   #currentExperiment {
     height: 720px !important;
+  }
+  #currentExperiment #gitButton {
+    bottom: 40px;
+  }
+  #experimentNote {
+    font-size: 10px;
+    padding-right: 0px;
   }
   /* project */
   #project {

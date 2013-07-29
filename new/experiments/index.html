@@ -8,6 +8,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <link rel="shortcut icon" href="/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="img/appleIcon.png"/>
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,900' rel='stylesheet' type='text/css'>
   </head>
@@ -27,6 +28,24 @@
           <li><a href="/about.html">About</a></li>
           <li><a href="/NathanBeekmanResume.pdf" target="_blank">Resum&#233;</a></li>
         </ul>
+        
+        <div id="mobileMenu" class="accordion-item">
+          <h2>&#43;Projects</h2>
+          <div class="content hidden">
+            <ul>
+              <li class="active"><a href="experiments">Current Experiment</a></li>
+              <li><a href="/projects/xbox.html">XBox Kinect</a></li>
+              <li><a href="/projects/marco.html">Marco</a></li>
+              <li><a href="/projects/colours.html">Colours</a></li>
+              <li><a href="/projects/cabinet.html">Cabinet of Creatives</a></li>
+              <li><a href="/projects/nike.html">Nike</a></li>
+              <li><a href="/projects/jamba.html">Jamba Juice</a></li>
+              <li><a href="/projects/ritz.html">Ritz Carlton</a></li>
+              <li><a href="/projects/made.html">Made Collection</a></li>
+              <li><a href="/projects/smokeproof.html">Smokeproof Press</a></li>
+            </ul>
+          </div>
+        </div>
       </nav>
       
       <div id="projectList">
@@ -71,14 +90,15 @@
           </div>
         </div>
         <p>Using Two.js, I was able to morph the vertices of circles and ellipses. This instantly reminded me of Rorschach from Watchmen. Together, with a picture of his hat, mask, and some shapes I distorted, Rorschach came alive.</p>
+        <p id="experimentNote">Note: This experiment may not work on tablets or mobile. If the face is blank, try using Chrome or Firefox on a computer.</p>
         <a id="gitButton" href="https://github.com/nbeekman/rorschach" target="_blank">View Code</a>
       </section>
     </div>
     
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <script src="/js/two.js"></script>
-    <script src="/js/scripts.js"></script>
-    <script src="/js/rorschach.js"></script>
+    <script src="/js/scripts.min.js"></script>
+    <script src="/js/rorschach.min.js"></script>
     <script type="text/javascript">
   			var _gaq = _gaq || [];
   			_gaq.push(['_setAccount', 'UA-32814352-1']);
