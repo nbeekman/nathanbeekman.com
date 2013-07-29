@@ -246,9 +246,6 @@ h1,h2,h3,h4,h5,h6 {
 #about ul {
   list-style: none;
 }
-#about p {
-  text-align: justify;
-}
 
 #skills {
   margin-top: -5px;
@@ -441,9 +438,11 @@ h1,h2,h3,h4,h5,h6 {
 /* ---------------------------------------------------------------------- */
 
 /* Smaller than standard 960 (devices and browsers) */
+/*
 @media only screen and (max-width: 959px) {
   
 }
+*/
 
 /* Tablet Portrait size to standard 960 (devices and browsers) */
 @media only screen and (min-width: 768px) and (max-width: 959px) {
@@ -474,15 +473,84 @@ h1,h2,h3,h4,h5,h6 {
 
 /* All Mobile Sizes (devices and browser) */
 @media only screen and (max-width: 767px) {
-  
+  /* social media */
+  #socialMedia {
+    margin-top: 190px;
+  }
+  /* content */
+  #content {
+    height: 772px;
+    font-size: 15px;
+  }
+  /* about */
+  #about img {
+    margin: 0 7px 0 0;
+    height: 197px;
+  }
+  #about h2,h3,h4 {
+    font-size: 90%;
+  }
+  #skillList {
+    padding-left: 0;
+  }
+  #skillList p {
+    font-size: 12px;
+  }
+  #skillList li:last-of-type {
+    margin-left: 128px;
+  }
+  #story {
+    margin-top: 0;
+  }
+  /* rorschach*/
+  #head {
+    width: 300px;
+  }
+  #eyes,
+  #cheeks,
+  #mouth{
+    left: -210px;
+  }
+  /* responsive slides */
+  .rslides {
+    width: 290px;
+  }
+  .rslides video {
+    height: 286px;
+  }
 }
 
 /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
-  
+  /* social media */
+  #socialMedia {
+    margin-top: 139px;
+  }
+  /* content */
+  #content {
+    height: 720px;
+  }
+  /* about */
+  #about h2 {
+    display: none;
+  }
+  #skillList li:nth-of-type(3n),
+  #skillList li:nth-of-type(4n),
+  #skillList li:last-of-type {
+    margin-left: 128px;
+  }
+  /* responsive slides */
+  .rslides {
+    width: 257px;
+  }
+  .rslides video {
+    height: 253px;
+  }
 }
 
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
 @media only screen and (max-width: 479px) {
-  
+  #content {
+    display: none;
+  }
 }
