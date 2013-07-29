@@ -1,0 +1,86 @@
+body {
+  background: #000000;
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+}
+#nathan {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 640px;
+}
+#iePic {
+  display: none;
+}
+
+.lt-ie9 #iePic {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+#dev {
+  width: 640px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  top: 435px;
+}
+.opacity {
+  opacity: 0;
+}
+.fadeIn {
+  -webkit-transition: all 3.5s ease; 
+	-moz-transition: all 3.5s ease; 
+	-o-transition: all 3.5s ease;
+  opacity: 1;
+}
+#dev h2 {
+  font-weight: 900;
+  text-transform: uppercase;
+}
+#dev p {
+  margin: 0;
+}
+#contactIcons{
+	list-style: none;
+	padding: 0;
+	margin-left: 213px;
+}
+#contactIcons li{
+	float: left;
+	margin-right: 30px;
+}
+#contactIcons li img{
+	width: 30px;
+	height: 30px;
+	border-radius: 5px;
+	border: none;
+	position: relative; 
+} 
+#contactIcons li img:hover { 
+	opacity: 1; 
+	-webkit-box-shadow: 0px 0px 20px rgba(255,255,255,0.8); 
+	-moz-box-shadow: 0px 0px 20px rgba(255,255,255,0.8); 
+	box-shadow: 0px 0px 20px rgba(255,255,255,0.8); 
+}
+#chrome {
+  display: none;
+}
+#chrome a {
+  text-decoration: none;
+  color: #ffffff;
+  border-bottom: 1px dotted #ffffff;
+}
+.lt-ie9 #chrome {
+  display: block;
+  margin-top: 80px;
+  clear: both;
+}
