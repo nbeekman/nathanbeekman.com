@@ -31,6 +31,9 @@ h1,h2,h3,h4,h5,h6 {
   text-decoration: none;
   color: #ffffff;
 }
+#mobileMenu {
+  display: none;
+}
 
 
 /* nathan svg */
@@ -500,7 +503,7 @@ h1,h2,h3,h4,h5,h6 {
     margin-left: 128px;
   }
   #story {
-    margin-top: 0;
+    margin-top: -20px;
   }
   /* rorschach*/
   #head {
@@ -548,9 +551,76 @@ h1,h2,h3,h4,h5,h6 {
   }
 }
 
-/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
-@media only screen and (max-width: 479px) {
-  #content {
-    display: none;
+/* Fix for About */
+@media only screen and (min-width: 480px) and (max-width: 538px) {
+  #skillList li:nth-of-type(3n),
+  #skillList li:nth-of-type(4n),
+  #skillList li:last-of-type {
+    margin-left: 0;
   }
 }
+
+/* Fix for Projects */
+@media only screen and (min-width: 481px) and (max-width: 568px) {
+  
+}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+  /* menu */
+  #sideMenu {
+    
+  }
+  #projectList,
+  #socialMedia {
+    display: none;
+  }
+  /* mobile menu */
+  #mobileMenu {
+    display: block;
+    margin-left: 18px;
+  }
+  .accordion-item h1 a {
+    text-decoration: none;
+  }
+  .accordion-item .content {
+    display: none;  
+  }
+  :target .content {
+    display: block;
+  }
+  
+  /* content */
+  #content {
+    position: absolute;
+    top: 280px;
+    margin-left: 0;
+    padding: 0;
+    height: inherit;
+  }
+  /* home */
+  #home {
+    background: url("/img/homeMobile.png") center top no-repeat;
+    margin-bottom: 0 !important;
+  }
+  #home h2 {
+    margin-top: 0;
+  }
+  /* about */
+  #skillList li:nth-of-type(4n) {
+    margin-left: 128px;
+  }
+  /* current experiment */
+  #currentExperiment {
+    height: 720px !important;
+  }
+  /* project */
+  #project {
+    height: 700px !important;
+  }
+  /* git button */
+  #gitButton{
+    right: 15px;
+  }
+}
+
