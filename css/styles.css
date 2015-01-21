@@ -55,6 +55,9 @@ h1,h2,h3,h4,h5,h6 {
   height: 135px;
   display: none;
 }
+#nathan svg {
+  //width: 200px !important;
+}
 
 
 /* nathan description */
