@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'nathan';
+  public nathanLogo: string = 'assets/images/nathanOutline.png';
+  public emailIcon: string = 'assets/images/email.png';
+  public linkedInIcon: string = 'assets/images/linkedIn.png';
 }
