@@ -12,9 +12,6 @@ const IndexPage = () => (
     <div style={{ maxWidth: `400px`, margin: `5rem auto 1.5rem` }}>
       <img src={nathanIcon} alt="Nathan icon" />
       <div style={{ textAlign: `center` }}>
-        <a href="mailto:nathan@nathanbeekman.com">
-          <img src={emailIcon} style={{ height: `35px`, width: `35px`, marginRight: `20px` }} alt="email" />
-        </a>
         <a href="https://www.linkedin.com/in/nathanbeekman/">
           <img src={linkedInIcon} style={{ height: `35px`, width: `35px` }} alt="linkedIn" />
         </a>
