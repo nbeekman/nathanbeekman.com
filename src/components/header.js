@@ -1,42 +1,39 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import { useStaticQuery, graphql } from 'gatsby';
+import PropTypes from 'prop-types';
+import React from 'react';
+import Nav from './tachyons/nav/logoLinksInline';
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
+const HeaderLayout = ({ logo }) => (
+  <header className="bg-near-black white">
+    <Nav logo={logo}>
+      <Nav.Link to="/about" className="mr3">
+        About
+      </Nav.Link>
+      <Nav.Link to="/blog" className="mr3">
+        Blog
+      </Nav.Link>
+    </Nav>
   </header>
-)
+);
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
+HeaderLayout.propTypes = {
+  logo: PropTypes.object.isRequired,
+};
 
-Header.defaultProps = {
-  siteTitle: ``,
-}
+const Header = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      headerLogo: file(relativePath: { eq: "nathanOutline.png" }) {
+        childImageSharp {
+          fixed(width: 200) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+    }
+  `);
 
-export default Header
+  return <HeaderLayout logo={data.headerLogo.childImageSharp.fixed} />;
+};
+
+export default Header;
