@@ -3,9 +3,9 @@ templateKey: work-post
 title: Enterprise CMS
 client: Powdr Corp
 image: /img/nathanOutline.png
-colours: bg-light-red near-white
+colours: bg-light-blue near-black
 about: >-
   A site to test.
-order: 5
+order: 6
 ---
 
