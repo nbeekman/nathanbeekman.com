@@ -1,11 +1,11 @@
 ---
 templateKey: work-post
-title: Let's Test
-client: test Productions
+title: Comfort Zone
+client: Integrated Business Resources (IBR)
 image: /img/nathanOutline.png
 colours: bg-light-red near-white
 about: >-
   A site to test.
-order: 7
+order: 4
 ---
 

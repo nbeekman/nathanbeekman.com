@@ -14,12 +14,13 @@ const Logo = ({ logo, url, ...props }) => {
   );
 };
 
-const FooterLayout = ({ linkedIn, github }) => {
+const FooterLayout = ({ linkedIn, github, twitter }) => {
   return (
     <footer className="bg-near-black white">
       <div className="mw9 center pv3 tr">
-        <Logo logo={linkedIn} url="https://linkedin.com/in/nathanbeekman/" />
         <Logo logo={github} url="https://github.com/nbeekman" />
+        <Logo logo={linkedIn} url="https://linkedin.com/in/nathanbeekman/" />
+        <Logo logo={twitter} url="https://twitter.com/nathanbeekman" />
       </div>
     </footer>
   );
@@ -45,10 +46,19 @@ const Footer = () => {
           }
         }
       }
+      twitter: file(relativePath: { eq: "twitter.png" }) {
+        childImageSharp {
+          fixed(width: 30) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
     }
   `);
 
-  return <FooterLayout linkedIn={data.linkedIn.childImageSharp.fixed} github={data.github.childImageSharp.fixed} />;
+  return <FooterLayout linkedIn={data.linkedIn.childImageSharp.fixed}
+                       github={data.github.childImageSharp.fixed}
+                       twitter={data.twitter.childImageSharp.fixed} />;
 };
 
 export default Footer;
