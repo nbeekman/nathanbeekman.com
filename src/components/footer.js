@@ -17,7 +17,7 @@ const Logo = ({ logo, url, ...props }) => {
 const FooterLayout = ({ linkedIn, github, twitter }) => {
   return (
     <footer className="bg-near-black white">
-      <div className="mw9 center pv3 tr">
+      <div className="mw9 center pv3 tc">
         <Logo logo={github} url="https://github.com/nbeekman" />
         <Logo logo={linkedIn} url="https://linkedin.com/in/nathanbeekman/" />
         <Logo logo={twitter} url="https://twitter.com/nathanbeekman" />
