@@ -44,7 +44,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Nathan Beekman - Software Developer`,
+        name: `Nathan Beekman | Senior Frontend Developer`,
         short_name: `nathanbeekman.com`,
         start_url: `/`,
         background_color: `#2e2e2e`,

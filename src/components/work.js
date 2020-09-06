@@ -8,7 +8,7 @@ const SectionContainer = ({ children }) => (
   <div className="w-90 mw9 db center mb5">{children}</div>
 );
 const SectionHeading = ({ children }) => (
-  <h2 className="f2 f1-l mt4 mt5-l mb4 bb b--dark-blue b--dotted">{children}</h2>
+  <h2 className="f2 f1-l mt4 mt5-l mb4 bb b--dark-blue b--dotted avenir">{children}</h2>
 );
 const Client = ({ children }) => <h3 className="f3 mb2">{children}</h3>;
 const P = ({ children }) => (

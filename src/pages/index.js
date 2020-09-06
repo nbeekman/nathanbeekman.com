@@ -9,7 +9,7 @@ const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home" />
 
-    Welcome!
+    <h1 className="w-90 mw9 db center mb5 avenir">Nathan Beekman | Senior Frontend Developer</h1>
 
     <Work work={data.allMarkdownRemark.edges} />
   </Layout>

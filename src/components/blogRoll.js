@@ -15,7 +15,7 @@ const SectionContainer = ({ children }) => (
 );
 
 const SectionHeading = ({ children }) => (
-  <h2 className="f2 f1-l mb4 bb b--dark-blue b--dotted">{children}</h2>
+  <h2 className="f2 f1-l mb4 bb b--dark-blue b--dotted avenir">{children}</h2>
 );
 
 const Date = tachyons("time", "mt2 f7 tr");

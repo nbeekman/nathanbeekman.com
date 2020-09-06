@@ -7,7 +7,7 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="About" />
-      This is the about page.
+      <h1 className="avenir">About</h1>
     </Layout>
   );
 };
