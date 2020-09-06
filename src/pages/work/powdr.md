@@ -2,7 +2,7 @@
 templateKey: work-post
 title: Enterprise CMS
 client: Powdr Corp
-image: /img/nathanOutline.png
+image: /img/powdr.jpg
 colours: bg-light-blue near-black
 about: >-
   A site to test.

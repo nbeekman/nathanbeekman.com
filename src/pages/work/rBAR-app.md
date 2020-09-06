@@ -2,7 +2,7 @@
 templateKey: work-post
 title: rBAR app
 client: rBAR
-image: /img/nathanOutline.png
+image: /img/rbar.jpg
 colours: bg-orange near-white
 about: >-
   A site to test.

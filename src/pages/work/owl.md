@@ -2,7 +2,7 @@
 templateKey: work-post
 title: DarkOwl Vision
 client: DarkOwl
-image: /img/nathanOutline.png
+image: /img/owl.png
 colours: bg-dark-gray near-white
 about: >-
   A site to test.

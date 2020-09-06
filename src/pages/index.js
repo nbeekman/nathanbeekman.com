@@ -9,7 +9,11 @@ const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home" />
 
-    <h1 className="w-90 mw9 db center mb5 avenir">Nathan Beekman | Senior Frontend Developer</h1>
+    <section className="db mb5 center tc">
+      <h1 className="avenir mb1">Nathan Beekman</h1>
+      <p>Senior Frontend Developer</p>
+      <p className="i">Angular | React | Design Systems | Ionic Mobile Apps</p>
+    </section>
 
     <Work work={data.allMarkdownRemark.edges} />
   </Layout>

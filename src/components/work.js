@@ -5,11 +5,11 @@ import { Subtitle } from '../components/tachyons/text';
 import FullBleed from '../components/tachyons/layout/fullBleed';
 
 const SectionContainer = ({ children }) => (
-  <div className="w-90 mw9 db center mb5">{children}</div>
+  <div className="db center mb5">{children}</div>
 );
-const SectionHeading = ({ children }) => (
-  <h2 className="f2 f1-l mt4 mt5-l mb4 bb b--dark-blue b--dotted avenir">{children}</h2>
-);
+// const SectionHeading = ({ children }) => (
+//   <h2 className="f2 f1-l mt4 mt5-l mb4 bb b--dark-blue b--dotted avenir">{children}</h2>
+// );
 const Client = ({ children }) => <h3 className="f3 mb2">{children}</h3>;
 const P = ({ children }) => (
   <p className="f6 lh-copy measure mb2">{children}</p>
@@ -46,7 +46,7 @@ export const WorkItem = ({
 export default ({ work, ...props }) => {
   return (
     <SectionContainer>
-      <SectionHeading>Work</SectionHeading>
+      {/* <SectionHeading>Work</SectionHeading> */}
       <FullBleed>
         {work
           .sort((a, b) => a.node.frontmatter.order - b.node.frontmatter.order)

@@ -5,7 +5,7 @@ import tachyons from './tachyons/tachyonsComposer';
 
 const PageContainer = tachyons(
   "section",
-  "bg-near-white w-100 h-100 pt4 pt5-l"
+  "w-100 h-100 pt4 pt5-l"
 );
 
 const SectionContainer = ({ children }) => (
@@ -14,9 +14,9 @@ const SectionContainer = ({ children }) => (
   </ul>
 );
 
-const SectionHeading = ({ children }) => (
-  <h2 className="f2 f1-l mb4 bb b--dark-blue b--dotted avenir">{children}</h2>
-);
+// const SectionHeading = ({ children }) => (
+//   <h1 className="f2 f1-l mb4 bb b--dark-blue b--dotted avenir">{children}</h1>
+// );
 
 const Date = tachyons("time", "mt2 f7 tr");
 
@@ -52,8 +52,8 @@ export const BlogRollItem = ({
 export default ({ blog, ...props }) => {
   return (
     <PageContainer>
+      {/* <SectionHeading>Blog</SectionHeading> */}
       <SectionContainer>
-        <SectionHeading>Blog</SectionHeading>
         {blog.map(post => (
           <BlogRollItem
             slug={post.node.fields.slug}
