@@ -1,23 +1,53 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import emailIcon from '../images/email.png';
-import linkedInIcon from '../images/linkedIn.png';
-import nathanIcon from '../images/nathanOutline.png';
+import Work from '../components/work';
 
-const IndexPage = () => (
+const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home" />
-    <div style={{ maxWidth: `400px`, margin: `5rem auto 1.5rem` }}>
-      <img src={nathanIcon} alt="Nathan icon" />
-      <div style={{ textAlign: `center` }}>
-        <a href="https://www.linkedin.com/in/nathanbeekman/">
-          <img src={linkedInIcon} style={{ height: `35px`, width: `35px` }} alt="linkedIn" />
-        </a>
-      </div>
-    </div>
+
+    <section className="db mb5 center tc">
+      <h1 className="avenir mb1">Nathan Beekman</h1>
+      <p>Senior Frontend Developer</p>
+      <p className="i">Angular | React | Design Systems | Ionic Mobile Apps</p>
+    </section>
+
+    <Work work={data.allMarkdownRemark.edges} />
   </Layout>
 );
 
 export default IndexPage;
+
+export const query = graphql`
+  query homePageQuery {
+    allMarkdownRemark(
+      filter: { frontmatter: { templateKey: { eq: "work-post" } } }
+    ) {
+      edges {
+        node {
+          id
+          fields {
+            slug
+          }
+          frontmatter {
+            project: title
+            image {
+              childImageSharp {
+                fluid(maxWidth: 1000) {
+                  src
+                }
+              }
+            }
+            colours
+            client
+            about
+            order
+          }
+        }
+      }
+    }
+  }
+`;
