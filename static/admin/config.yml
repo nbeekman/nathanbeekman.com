@@ -76,3 +76,19 @@ collections:
         }
       - { label: "Body", name: "body", widget: "markdown", required: true }
       - { label: "Tags", name: "tags", widget: "list" }
+
+  - name: "about" # Used in routes, e.g. admin/collections/work
+    label: "About" # Used in the UI
+    folder: "src/pages/about" # Where the files will be stored
+    create: true # Users can create new posts
+    slug: "{{slug}}" # Creates a safe slug from the post's title
+    fields: # The fields for each document
+      - {
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "about-post",
+        }
+      - { label: "Title", name: "title", widget: "string", required: true }
+      - { label: "Image", name: "image", widget: "image", required: true }
+      - { label: "Body", name: "body", widget: "markdown", required: true }

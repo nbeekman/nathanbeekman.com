@@ -6,12 +6,13 @@ import Nav from './tachyons/nav/logoLinksInline';
 const HeaderLayout = ({ logo }) => (
   <header className="bg-near-black white">
     <Nav logo={logo}>
-      <Nav.Link to="/about" className="mr3">
+      This site is in beta.
+      {/* <Nav.Link to="/about" className="mr3">
         About
-      </Nav.Link>
-      <Nav.Link to="/blog" className="mr3">
+      </Nav.Link> */}
+      {/* <Nav.Link to="/blog" className="mr3">
         Blog
-      </Nav.Link>
+      </Nav.Link> */}
     </Nav>
   </header>
 );

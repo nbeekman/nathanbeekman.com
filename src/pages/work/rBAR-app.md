@@ -1,6 +1,6 @@
 ---
 templateKey: work-post
-title: rBAR app
+title: rBAR mobile app
 client: rBAR
 image: /img/rbar.jpg
 colours: bg-orange near-white

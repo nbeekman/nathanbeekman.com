@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link } from 'gatsby';
+// import { Link } from 'gatsby';
 
 import { Subtitle } from '../components/tachyons/text';
 import FullBleed from '../components/tachyons/layout/fullBleed';
@@ -26,7 +26,8 @@ export const WorkItem = ({
   aspectRatio,
 }) => {
   return (
-    <Link to={`work${slug}`}>
+    // TODO
+    // <Link to={`work${slug}`}>
       <FullBleed.Tile
         backgroundURL={image.childImageSharp.fluid.src}
         width={width}
@@ -39,7 +40,7 @@ export const WorkItem = ({
             about.split("\n\n").map((paragraph, i) => <P key={i}>{paragraph}</P>)}
         </FullBleed.HiddenOverlay>
       </FullBleed.Tile>
-    </Link>
+    // </Link>
   );
 };
 
