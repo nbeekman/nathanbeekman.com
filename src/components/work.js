@@ -29,7 +29,7 @@ export const WorkItem = ({
     // TODO
     // <Link to={`work${slug}`}>
       <FullBleed.Tile
-        backgroundURL={image.childImageSharp.fluid.src}
+        backgroundURL={image.childImageSharp && image.childImageSharp.fluid.src}
         width={width}
         aspectRatio={aspectRatio}
       >

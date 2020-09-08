@@ -10,8 +10,7 @@ const IndexPage = ({ data }) => (
     <SEO title="Home" />
 
     <section className="db mb5 center tc">
-      <h1 className="avenir mb1">Nathan Beekman</h1>
-      <p>Senior Frontend Developer</p>
+      <h1 className="avenir mb1">Senior Frontend Developer</h1>
       <p className="i">Angular | React | Design Systems | Ionic Mobile Apps</p>
     </section>
 
