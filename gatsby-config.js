@@ -1,55 +1,24 @@
 module.exports = {
   siteMetadata: {
-    title: `Nathan Beekman`,
-    description: `A personal portfolio site.`,
-    author: {
-      twitter: `@nathanbeekman`,
-      github: `@nbeekman`,
-    }
+    siteUrl: `https://nathanbeekman.com`,
+    siteTitle: `Nathan Beekman`,
+    siteDescription: `A personal portfolio site.`,
+    twitter: `@nathanbeekman`,
+    github: `@nbeekman`,
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sass`,
+    'gatsby-plugin-styled-components',
+    'gatsby-plugin-image',
     {
-      // keep as first gatsby-source-filesystem plugin for gatsby image support
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-plugin-google-analytics',
       options: {
-        path: `${__dirname}/static/img`,
-        name: `uploads`,
+        trackingId: 'UA-32814352-1',
       },
     },
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sitemap',
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `work-posts`,
-        path: `${__dirname}/src/pages/work`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `blog-posts`,
-        path: `${__dirname}/src/pages/blog`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `about-posts`,
-        path: `${__dirname}/src/pages/about`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
         name: `Nathan Beekman | Senior Frontend Developer`,
         short_name: `nathanbeekman.com`,
@@ -60,56 +29,39 @@ module.exports = {
         icon: `src/images/icon.png`,
       },
     },
+    'gatsby-transformer-remark',
+    'gatsby-plugin-mdx',
+    'gatsby-plugin-sharp',
+    'gatsby-plugin-typescript',
+    'gatsby-transformer-sharp',
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: "@chakra-ui/gatsby-plugin",
       options: {
-        trackingId: "UA-32814352-1",
+        resetCSS: true,
       },
     },
     {
-      resolve: "gatsby-transformer-remark",
+      resolve: 'gatsby-source-filesystem',
       options: {
-        plugins: [
-          {
-            resolve: `gatsby-plugin-netlify-cms-paths`,
-            options: {
-              cmsConfig: `/static/admin/config.yml`,
-            },
-          },
-          {
-            resolve: "gatsby-remark-relative-images",
-            options: {
-              name: "uploads",
-            },
-          },
-          {
-            resolve: "gatsby-remark-images",
-            options: {
-              // It's important to specify the maxWidth (in pixels) of
-              // the content container as this plugin uses this as the
-              // base for generating different widths of each image.
-              maxWidth: 900,
-            },
-          },
-          {
-            resolve: "gatsby-remark-copy-linked-files",
-            options: {
-              destinationDir: "static",
-            },
-          },
-        ],
+        name: 'images',
+        path: './src/images/',
       },
+      __key: 'images',
     },
     {
-      resolve: "gatsby-plugin-netlify-cms",
+      resolve: 'gatsby-source-filesystem',
       options: {
-        modulePath: `${__dirname}/src/cms/cms.js`,
-        publicPath: `admin`,
+        name: 'pages',
+        path: './src/pages/',
+      },
+      __key: 'pages',
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `work`,
+        path: `${__dirname}/src/content/work`,
       },
     },
-    "gatsby-plugin-netlify",
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
-}
+};
