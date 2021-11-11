@@ -63,5 +63,22 @@ module.exports = {
         path: `${__dirname}/src/content/work`,
       },
     },
+    {
+      resolve: `gatsby-omni-font-loader`,
+      options: {
+        enableListener: true,
+        preconnect: [`https://fonts.gstatic.com`],
+        web: [
+          {
+            name: `Bebas Neue`,
+            file: `https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap`,
+          },
+          {
+            name: `Montserrat`,
+            file: `https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap`,
+          },
+        ],
+      },
+    },
   ],
 };

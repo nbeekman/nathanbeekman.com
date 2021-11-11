@@ -8,7 +8,6 @@ const Main = styled.main`
   color: #e2e8f0;
   background: #141E30;
   background: linear-gradient(#141E30, #243B55);
-  font-family: 'Roboto', sans-serif, serif;
 `;
 
 const ContentContainer = styled.div`

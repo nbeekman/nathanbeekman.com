@@ -1,11 +1,7 @@
+import { Heading, Stack, Text } from "@chakra-ui/react";
 import { graphql } from 'gatsby';
 import React from 'react';
 // import styled from 'styled-components';
-import {
-  Stack,
-  Text,
-  Heading,
-} from "@chakra-ui/react"
 
 import { Layout } from '../components/layout';
 import { Work } from '../components/work';
@@ -15,10 +11,10 @@ const HomePage = ({ data }) => {
   return (
     <Layout>
       <Stack align="center" spacing="5" py={[12, 16, null, 24, 28]}>
-        <Heading as="h1" size="3xl" textAlign="center">
+        <Heading as="h1" size="3xl">
           Hey, I&#8217;m Nathan!
         </Heading>
-        <Heading as="h2" size="lg" textAlign="center">
+        <Heading as="h2" size="lg">
           Senior Frontend Developer
         </Heading>
         <Text marginTop="0px !important">
@@ -42,6 +38,9 @@ export const query = graphql`
           project
           description
           current
+          featuredClient
+          featuredProject
+          technology
           image {
             childImageSharp {
               gatsbyImageData

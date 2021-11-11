@@ -24,10 +24,10 @@ const Container = styled.section`
 `;
 
 export const Work: React.FC<WorkProps> = ({ data }) => {
-  console.log(data);
+  // console.log(data);
 
-  const clientBox = (client: ClientProps, i: number) => (
-    <Box key={i} maxW="lg" borderWidth="1px" borderRadius="sm" overflow="hidden" style={{ margin: '0 auto' }}>
+  const projectContent = (client: ClientProps) => (
+    <>
       <GatsbyImage
         image={getImage(client.image)}
         alt=""
@@ -62,7 +62,7 @@ export const Work: React.FC<WorkProps> = ({ data }) => {
           {client.project}
         </Box>
       </Box>
-    </Box>
+    </>
   );
 
   const getClients = (data: WorkPropsData[]) => {
@@ -70,19 +70,12 @@ export const Work: React.FC<WorkProps> = ({ data }) => {
     const pastClients = [];
 
     data.map((client, i) => {
-      if (client.frontmatter.current) {
-        currentClients.push(
-          <>
-            {clientBox(client.frontmatter, i)}
-          </>
-        );
-      } else {
-        pastClients.push(
-          <>
-            {clientBox(client.frontmatter, i)}
-          </>
-        );
-      }
+      const project = (
+        <Box key={i} maxW="lg" borderWidth="1px" borderRadius="sm" overflow="hidden" style={{ margin: '0 auto' }}>
+          {projectContent(client.frontmatter)}
+        </Box>
+      );
+      client.frontmatter.current ? currentClients.push(project) : pastClients.push(project);
     });
 
     const workSections = (

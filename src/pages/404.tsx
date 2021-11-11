@@ -1,3 +1,4 @@
+import { Heading, Stack, Text } from "@chakra-ui/react";
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
@@ -6,21 +7,20 @@ import { SEO } from '../components/seo';
 
 const Main = styled.main`
   color: #232129;
-  font-family: 'Roboto', sans-serif, serif;
-`;
-
-const Heading = styled.h1`
-  margin-top: 0;
-  margin-bottom: 64;
-  max-width: 320;
 `;
 
 const NotFoundPage = () => {
   return (
     <Main>
       <SEO title="404" />
-      <Heading>Page not found</Heading>
-      <Link to="/">Go back to Nathan&#8217;s portfolio!</Link>
+      <Stack align="center" spacing="5" py={[12, 16, null, 24, 28]}>
+        <Heading as="h1" size="3xl" textAlign="center">
+          Page not found
+        </Heading>
+        <Text as="u">
+          <Link to="/">Go back to Nathan&#8217;s portfolio!</Link>
+        </Text>
+      </Stack>
     </Main>
   );
 };
