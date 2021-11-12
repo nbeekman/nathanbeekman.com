@@ -6,5 +6,6 @@
 
 - [React](https://www.reactjs.org/)
 - [Gatsby](https://www.gatsbyjs.org/)
-- [Netlify CMS](https://www.netlifycms.org/)
-- [Tachyons](http://tachyons.io/)
+- [Chakra UI](https://chakra-ui.com/)
+- [styled-components](https://styled-components.com/)
+- [Typescript](https://www.typescriptlang.org/)
