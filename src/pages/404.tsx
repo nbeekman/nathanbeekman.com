@@ -1,15 +1,15 @@
 import { Heading, Stack, Text } from "@chakra-ui/react";
-import React from 'react';
-import { Link } from 'gatsby';
-import styled from 'styled-components';
+import { Link } from "gatsby";
+import React from "react";
+import styled from "styled-components";
 
-import { SEO } from '../components/seo';
+import { SEO } from "../components/seo";
 
 const Main = styled.main`
   color: #232129;
 `;
 
-const NotFoundPage = () => {
+const NotFoundPage: React.FC = () => {
   return (
     <Main>
       <SEO title="404" />

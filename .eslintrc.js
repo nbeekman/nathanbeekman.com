@@ -3,17 +3,13 @@ module.exports = {
   extends: [
     'plugin:@typescript-eslint/recommended',
     'plugin:cypress/recommended',
-    'plugin:jest/recommended',
     'prettier',
-    'prettier/react',
-    'prettier/@typescript-eslint',
   ],
   plugins: ['react'],
   env: {
     node: true,
     browser: true,
     jasmine: true,
-    jest: true,
   },
   rules: {
     '@typescript-eslint/explicit-member-accessibility': 0,

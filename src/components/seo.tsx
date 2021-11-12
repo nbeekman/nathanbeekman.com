@@ -1,7 +1,7 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
-import { useLocation } from '@reach/router';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useLocation } from "@reach/router";
+import { useStaticQuery, graphql } from "gatsby";
+import React from "react";
+import { Helmet } from "react-helmet";
 
 type SEOProps = {
   title?: string;

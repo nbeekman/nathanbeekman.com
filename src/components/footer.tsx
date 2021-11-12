@@ -1,9 +1,9 @@
-import React from 'react';
-import { StaticImage } from 'gatsby-plugin-image';
-import styled from 'styled-components';
+import { StaticImage } from "gatsby-plugin-image";
+import React from "react";
+import styled from "styled-components";
 
 const FooterContainer = styled.footer`
-  background-color: #141E30;
+  background-color: #BC412B;
   padding: 40px;
 `;
 
@@ -25,6 +25,8 @@ const Icons = styled.div`
 
 const Copyright = styled.div`
   text-align: center;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 20px;
 `;
 
 export const Footer: React.FC = () => {

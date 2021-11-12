@@ -1,8 +1,8 @@
 import React from "react";
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import { SEO } from "./seo";
 import { Footer } from "./footer";
+import { SEO } from "./seo";
 
 const Main = styled.main`
   color: #e2e8f0;

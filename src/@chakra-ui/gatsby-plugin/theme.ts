@@ -1,6 +1,6 @@
-import { extendTheme, ThemeOverride } from '@chakra-ui/react';
+import { extendTheme, ThemeOverride } from "@chakra-ui/react";
 
-import Heading from './components/heading';
+import Heading from "./components/heading";
 
 const fontWeights: ThemeOverride['fontWeights'] = {
   normal: 400,
