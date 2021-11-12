@@ -1,12 +1,13 @@
 import { Badge, Box, Heading, SimpleGrid } from "@chakra-ui/react";
 import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
 import React from "react";
+import styled from "styled-components";
 
 type ClientProps = {
   description: string;
   image: IGatsbyImageData;
   project: string;
-  title: string;
+  clientName: string;
   featuredClient: boolean;
   featuredProject: boolean;
   technology: string[];
@@ -18,13 +19,17 @@ type WorkProps = {
   }[];
 };
 
+const StyledGatsbyImage = styled(GatsbyImage)`
+  height: 275px;
+  background-color: #e2e8f0;
+`;
+
 export const Work: React.FC<WorkProps> = ({ data }) => {
   const projectContent: (client: ClientProps) => JSX.Element = (client: ClientProps) => (
     <>
-      <GatsbyImage
+      <StyledGatsbyImage
         image={getImage(client.image)}
-        alt={client.title}
-        style={{ height: '275px' }}
+        alt={client.clientName}
       />
 
       <Box p="6">
@@ -41,7 +46,7 @@ export const Work: React.FC<WorkProps> = ({ data }) => {
           lineHeight="tight"
           isTruncated
         >
-          {client.title}
+          {client.clientName}
         </Box>
 
         <Box>
@@ -56,13 +61,13 @@ export const Work: React.FC<WorkProps> = ({ data }) => {
       <Heading as="h2" size="3xl" marginBottom={4}>Work</Heading>
       <SimpleGrid columns={3} spacing={10} minChildWidth="425px">
         {data.map((client, i) => (
-          <>
+          <div key={i}>
             {client.frontmatter.featuredProject && (
-              <Box key={i} maxWidth="md" borderWidth="1px" borderRadius="sm" margin="0 auto">
+              <Box maxWidth="md" borderWidth="1px" borderRadius="sm" margin="0 auto">
                 {projectContent(client.frontmatter)}
               </Box>
             )}
-          </>
+          </div>
         ))}
       </SimpleGrid>
     </section>

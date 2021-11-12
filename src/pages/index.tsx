@@ -11,7 +11,7 @@ type DataProps = {
     nodes: {
       frontmatter: {
         date: string;
-        title: string;
+        clientName: string;
         project: string;
         description: string;
         featuredClient: boolean;
@@ -55,7 +55,7 @@ export const query = graphql`
       nodes {
         frontmatter {
           date
-          title
+          clientName
           project
           description
           featuredClient
