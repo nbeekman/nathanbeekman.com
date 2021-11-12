@@ -11,13 +11,14 @@ type DataProps = {
     nodes: {
       frontmatter: {
         date: string;
-        clientName: string;
-        project: string;
         description: string;
+        image: IGatsbyImageData;
+        project: string;
+        clientName: string;
+        url: string;
         featuredClient: boolean;
         featuredProject: boolean;
         technology: string[];
-        image: IGatsbyImageData;
       }
     }[]
   }
@@ -56,6 +57,7 @@ export const query = graphql`
         frontmatter {
           date
           clientName
+          url
           project
           description
           featuredClient

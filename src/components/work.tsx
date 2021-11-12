@@ -1,4 +1,4 @@
-import { Badge, Box, Heading, SimpleGrid } from "@chakra-ui/react";
+import { Badge, Box, Heading, Link, SimpleGrid } from "@chakra-ui/react";
 import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
 import React from "react";
 import styled from "styled-components";
@@ -8,6 +8,7 @@ type ClientProps = {
   image: IGatsbyImageData;
   project: string;
   clientName: string;
+  url: string;
   featuredClient: boolean;
   featuredProject: boolean;
   technology: string[];
@@ -46,7 +47,15 @@ export const Work: React.FC<WorkProps> = ({ data }) => {
           lineHeight="tight"
           isTruncated
         >
-          {client.clientName}
+          {client.url ? (
+            <Link href={client.url} isExternal>
+              {client.clientName}
+            </Link>
+          ) : (
+            <>
+              {client.clientName}
+            </>
+          )}
         </Box>
 
         <Box>
