@@ -1,21 +1,16 @@
-import { extendTheme, ThemeOverride } from "@chakra-ui/react";
+import { extendTheme } from "@chakra-ui/react";
 
+// Component overrides
 import Heading from "./components/heading";
 
-const fontWeights: ThemeOverride['fontWeights'] = {
-  normal: 400,
-  medium: 500,
-  semibold: 600,
-  bold: 700,
-};
+// Global styles override
+import styles from "./styles"
 
-const fonts: ThemeOverride['fonts'] = {
-  heading: `'Bebas Neue', ui-serif, Cambria, "Times New Roman", Times, serif`,
-  body: `'Montserrat', system-ui, sans-serif`,
-  mono: `Menlo, monospace`,
-};
+// Typography override
+import { fonts, fontWeights } from "./typography";
 
 const theme = {
+  styles,
   fontWeights,
   fonts,
   components: {

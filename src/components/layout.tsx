@@ -5,8 +5,6 @@ import { Footer } from "./footer";
 import { SEO } from "./seo";
 
 const Main = styled.main`
-  color: #e2e8f0;
-  background: #141E30;
   background: linear-gradient(#141E30, #243B55);
 `;
 
