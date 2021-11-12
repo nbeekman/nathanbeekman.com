@@ -14,7 +14,7 @@ const ContentContainer = styled.div`
   width: 90%;
   max-width: 1440px;
   margin: 0 auto;
-  padding-bottom: 40px;
+  margin-bottom: 112px;
 `;
 
 export const Layout: React.FC = ({ children }) => (
