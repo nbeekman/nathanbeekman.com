@@ -3,7 +3,6 @@ import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
 import React from "react";
 
 type ClientProps = {
-  current: boolean;
   description: string;
   image: IGatsbyImageData;
   project: string;
@@ -55,11 +54,15 @@ export const Work: React.FC<WorkProps> = ({ data }) => {
   return (
     <section>
       <Heading as="h2" size="3xl" marginBottom={4}>Work</Heading>
-      <SimpleGrid columns={3} spacing={10}>
+      <SimpleGrid columns={3} spacing={10} minChildWidth="425px">
         {data.map((client, i) => (
-          <Box key={i} width="md" borderWidth="1px" borderRadius="sm">
-            {projectContent(client.frontmatter)}
-          </Box>
+          <>
+            {client.frontmatter.featuredProject && (
+              <Box key={i} maxWidth="md" borderWidth="1px" borderRadius="sm" margin="0 auto">
+                {projectContent(client.frontmatter)}
+              </Box>
+            )}
+          </>
         ))}
       </SimpleGrid>
     </section>

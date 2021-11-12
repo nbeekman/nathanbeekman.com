@@ -14,7 +14,6 @@ type DataProps = {
         title: string;
         project: string;
         description: string;
-        current: boolean;
         featuredClient: boolean;
         featuredProject: boolean;
         technology: string[];
@@ -59,7 +58,6 @@ export const query = graphql`
           title
           project
           description
-          current
           featuredClient
           featuredProject
           technology
