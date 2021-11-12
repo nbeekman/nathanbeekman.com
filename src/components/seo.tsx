@@ -3,6 +3,8 @@ import { useStaticQuery, graphql } from "gatsby";
 import React from "react";
 import { Helmet } from "react-helmet";
 
+import favicon from '../images/favicon.png';
+
 type SEOProps = {
   title?: string;
 };
@@ -50,7 +52,7 @@ export const SEO: React.FC<SEOProps> = ({ title, children }) => {
       <meta property="og:see_also" content={seo.github} />
       <meta property="og:see_also" content={seo.twitter} />
       <meta name="twitter:creator" content={site.siteMetadata.twitter} />
-      <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+      <link rel="icon" type="image/svg+xml" href={favicon} />
       {children}
     </Helmet>
   );
