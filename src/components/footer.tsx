@@ -44,7 +44,7 @@ export const Footer: React.FC = () => {
           </a>
           <a href="https://linkedin.com/in/nathanbeekman/">
             <StaticImage
-              src="../images/linkedin.png"
+              src="../images/linkedIn.png"
               alt="linkedin link"
               placeholder="blurred"
               width={50}
