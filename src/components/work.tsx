@@ -59,7 +59,7 @@ export const Work: React.FC<WorkProps> = ({ data }) => {
   return (
     <section>
       <Heading as="h2" size="3xl" marginBottom={4}>Work</Heading>
-      <SimpleGrid columns={3} spacing={10} minChildWidth="425px">
+      <SimpleGrid columns={3} spacing={10} minChildWidth={['280px', '425px']}>
         {data.map((client, i) => (
           <div key={i}>
             {client.frontmatter.featuredProject && (
