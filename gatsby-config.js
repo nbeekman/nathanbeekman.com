@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     siteUrl: `https://nathanbeekman.com`,
-    siteTitle: `Nathan Beekman`,
+    siteTitle: `Nathan Beekman | Senior Frontend Developer`,
     siteDescription: `A personal portfolio site.`,
     twitter: `@nathanbeekman`,
     github: `@nbeekman`,
