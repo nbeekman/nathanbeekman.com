@@ -23,8 +23,6 @@ module.exports = {
         name: `Nathan Beekman | Senior Frontend Developer`,
         short_name: `nathanbeekman.com`,
         start_url: `/`,
-        background_color: `#2e2e2e`,
-        theme_color: `#c96218`,
         display: `minimal-ui`,
         icon: `src/images/icon.png`,
       },
