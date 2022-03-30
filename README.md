@@ -1,6 +1,64 @@
-# Portfolio Site for Nathan Beekman [![Netlify Status](https://api.netlify.com/api/v1/badges/015d6fee-2b8d-49ba-b6d7-b5933382d5b6/deploy-status)](https://app.netlify.com/sites/nathanbeekman/deploys)
+<div align="center">
+  <img alt="Logo" src="https://raw.githubusercontent.com/nbeekman/nathanbeekman.com/main/src/images/icon.png" width="100px" />
+</div>
 
-[nathanbeekman.com](https://nathanbeekman.com/)
+<p align="center">
+  <a href="https://nathanbeekman.com" target="_blank">nathanbeekman.com</a> is built with <a href="https://www.gatsbyjs.org/" target="_blank">Gatsby</a> and hosted by <a href="https://www.netlify.com/" target="_blank">Netlify</a>
+</p>
+
+<p align="center">
+  <a href="https://app.netlify.com/sites/nathanbeekman/deploys" target="_blank">
+    <img src="https://api.netlify.com/api/v1/badges/015d6fee-2b8d-49ba-b6d7-b5933382d5b6/deploy-status" alt="Netlify Status" />
+  </a>
+</p>
+
+## Getting Started
+
+1. Install Gatsby CLI
+
+    ```sh
+    npm install -g gatsby-cli
+    ```
+
+2. Install and use the correct version of Node using [NVM](https://github.com/nvm-sh/nvm)
+
+    ```sh
+    nvm install
+    ```
+
+3. Install dependencies
+
+    ```sh
+    yarn
+    ```
+
+4. Start the development server
+
+    ```sh
+    yarn start
+    ```
+
+## Building / Running for Production
+
+1. Generate a full static production build
+
+    ```sh
+    yarn build
+    ```
+
+1. Preview the site as it will appear once deployed
+
+    ```sh
+    yarn serve
+    ```
+
+## Linting
+
+1. Lint the project
+
+    ```sh
+    yarn lint
+    ```
 
 ## Technology Used
 
