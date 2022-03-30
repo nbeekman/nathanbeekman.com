@@ -29,13 +29,13 @@ const HomePage: React.FC<PageProps<DataProps>> = ({ data }) => {
   return (
     <Layout>
       <Stack align="center" spacing="5" py={[12, 16, null, 24, 28]}>
-        <Heading as="h1" size="4xl">
+        <Heading as="h1" size="4xl" letterSpacing="normal">
           Hey, I&#8217;m Nathan!
         </Heading>
-        <Heading as="h2" size="lg">
+        <Heading as="h2" size="lg" letterSpacing="normal">
           Senior Frontend Developer
         </Heading>
-        <Text marginTop="0px !important">
+        <Text marginTop="0px !important" fontSize={[12, 14, 16]}>
           React | Angular | Design Systems | Ionic Mobile Apps
         </Text>
       </Stack>
