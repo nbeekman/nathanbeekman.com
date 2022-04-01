@@ -28,7 +28,7 @@ type DataProps = {
 const HomePage: React.FC<PageProps<DataProps>> = ({ data }) => {
   return (
     <Layout>
-      <Stack align="center" spacing="5" py={[12, 16, null, 24, 28]}>
+      <Stack align="center" spacing="5" py={[12, 16, 20]}>
         <Heading as="h1" size="4xl" letterSpacing="normal">
           Hey, I&#8217;m Nathan!
         </Heading>

@@ -6,12 +6,6 @@
   <a href="https://nathanbeekman.com" target="_blank">nathanbeekman.com</a> is built with <a href="https://www.gatsbyjs.org/" target="_blank">Gatsby</a> and hosted by <a href="https://www.netlify.com/" target="_blank">Netlify</a>
 </p>
 
-<p align="center">
-  <a href="https://app.netlify.com/sites/nathanbeekman/deploys" target="_blank">
-    <img src="https://api.netlify.com/api/v1/badges/015d6fee-2b8d-49ba-b6d7-b5933382d5b6/deploy-status" alt="Netlify Status" />
-  </a>
-</p>
-
 ## Getting Started
 
 1. Install Gatsby CLI
