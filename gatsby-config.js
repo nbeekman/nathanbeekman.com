@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     siteUrl: `https://nathanbeekman.com`,
-    siteTitle: `Nathan Beekman | Senior Frontend Developer`,
+    siteTitle: `Nathan Beekman | Senior Frontend Engineer`,
     siteDescription: `A personal portfolio site.`,
     twitter: `@nathanbeekman`,
     github: `@nbeekman`,
@@ -20,7 +20,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: `Nathan Beekman | Senior Frontend Developer`,
+        name: `Nathan Beekman | Senior Frontend Engineer`,
         short_name: `nathanbeekman.com`,
         start_url: `/`,
         display: `minimal-ui`,
