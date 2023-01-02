@@ -51,7 +51,13 @@ export const query = graphql`
   query workQuery {
     allMdx(
       filter: {frontmatter: {category: {eq: "work"}}}
-      sort: {fields: [frontmatter___date, frontmatter___title], order: [DESC, DESC]}
+      sort: {
+        fields: [
+          frontmatter___featuredClient,
+          frontmatter___date,
+          frontmatter___title
+        ],
+        order: [DESC, DESC, DESC]}
     ) {
       nodes {
         frontmatter {
