@@ -10,9 +10,11 @@ module.exports = {
     'gatsby-plugin-styled-components',
     'gatsby-plugin-image',
     {
-      resolve: 'gatsby-plugin-google-analytics',
+      resolve: 'gatsby-plugin-google-gtag',
       options: {
-        trackingId: 'G-EKN2T2JRV0',
+        trackingIds: [
+          'G-EKN2T2JRV0',
+        ],
       },
     },
     'gatsby-plugin-react-helmet',
