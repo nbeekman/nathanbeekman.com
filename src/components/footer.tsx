@@ -50,14 +50,6 @@ export const Footer: React.FC = () => {
               width={50}
             />
           </a>
-          <a href="https://twitter.com/nathanbeekman">
-            <StaticImage
-              src="../images/twitter.png"
-              alt="twitter"
-              placeholder="blurred"
-              width={50}
-            />
-          </a>
         </Icons>
       </IconsContainer>
       <Copyright>
