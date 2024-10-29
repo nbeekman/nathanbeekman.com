@@ -3,7 +3,6 @@ module.exports = {
     siteUrl: `https://nathanbeekman.com`,
     siteTitle: `Nathan Beekman | Front-End Practice Lead`,
     siteDescription: `A personal portfolio site.`,
-    twitter: `@nathanbeekman`,
     github: `@nbeekman`,
   },
   plugins: [

@@ -19,7 +19,6 @@ export const SEO: React.FC<SEOProps> = ({ title, children }) => {
             siteTitle
             siteDescription
             siteUrl
-            twitter
             github
           }
         }
@@ -32,7 +31,6 @@ export const SEO: React.FC<SEOProps> = ({ title, children }) => {
     description: site.siteMetadata.siteDescription,
     url: href,
     github: `https://github.com/nbeekman`,
-    twitter: `https://twitter.com/nathanbeekman`,
   };
 
   return (
@@ -50,8 +48,6 @@ export const SEO: React.FC<SEOProps> = ({ title, children }) => {
       <meta property="og:description" content={seo.description} />
       <meta property="og:type" content="website" />
       <meta property="og:see_also" content={seo.github} />
-      <meta property="og:see_also" content={seo.twitter} />
-      <meta name="twitter:creator" content={site.siteMetadata.twitter} />
       <link rel="icon" type="image/svg+xml" href={favicon} />
       {children}
     </Helmet>
