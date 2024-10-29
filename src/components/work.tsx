@@ -72,7 +72,7 @@ export const Work: React.FC<WorkProps> = ({ data }) => {
         {data.map((client, i) => (
           <div key={i}>
             {client.frontmatter.featuredProject && (
-              <Box maxWidth="md" borderWidth="1px" borderRadius="sm" margin="0 auto">
+              <Box height="100%" maxWidth="md" borderWidth="1px" borderRadius="sm" margin="0 auto">
                 {projectContent(client.frontmatter)}
               </Box>
             )}
