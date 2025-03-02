@@ -36,7 +36,7 @@ const HomePage: React.FC<PageProps<DataProps>> = ({ data }) => {
           Front-End Practice Lead
         </Heading>
         <Text marginTop="0px !important" fontSize={[12, 14, 16]}>
-          React | Angular | Design Systems | Ionic Mobile Apps
+          React | Angular | Design Systems | Mobile Apps
         </Text>
       </Stack>
 

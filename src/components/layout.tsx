@@ -8,6 +8,11 @@ const Main = styled.main`
   background: linear-gradient(#141E30, #243B55);
 `;
 
+const TopBanner = styled.div`
+  background-color: #BC412B;
+  height: 10px;
+`;
+
 const ContentContainer = styled.div`
   width: 90%;
   max-width: 1440px;
@@ -15,8 +20,13 @@ const ContentContainer = styled.div`
   margin-bottom: 112px;
 `;
 
-export const Layout: React.FC = ({ children }) => (
+interface LayoutProps {
+  children: React.ReactNode;
+}
+
+export const Layout: React.FC<LayoutProps> = ({ children }) => (
   <Main>
+    <TopBanner />
     <SEO />
     <ContentContainer>
       {children}
