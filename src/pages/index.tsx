@@ -10,7 +10,7 @@ type DataProps = {
   allMdx: {
     nodes: {
       frontmatter: {
-        lastUpdated: string;
+        endDate: string;
         description: string;
         image: IGatsbyImageData;
         project: string;
@@ -51,11 +51,11 @@ export const query = graphql`
   query workQuery {
     allMdx(
       filter: {frontmatter: {category: {eq: "work"}}}
-      sort: [{frontmatter: {featuredClient: DESC}}, {frontmatter: {lastUpdated: DESC}}, {frontmatter: {clientName: DESC}}]
+      sort: [{frontmatter: {featuredClient: DESC}}, {frontmatter: {endDate: DESC}}, {frontmatter: {clientName: DESC}}]
     ) {
       nodes {
         frontmatter {
-          lastUpdated
+          endDate
           clientName
           url
           project
