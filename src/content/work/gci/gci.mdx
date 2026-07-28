@@ -12,4 +12,6 @@ featuredProject: true
 technology: ["react", "d3", "cordova"]
 ---
 
-GCI
+The Hub is GCI's portal for business customers — support ticketing, managed wifi endpoint monitoring, and firewall traffic analysis brought together in one place.
+
+I built every custom visualization in the product: fourteen D3 charts covering bandwidth trends, network flow, firewall top talkers, and security events. Rather than reach for a charting library, I built the primitives myself — axes, grids, plot marks, data series — so each visualization could fit the data it was describing. Several use brush-driven overview-and-detail interaction for navigating long time series. The charts render through React's virtual DOM rather than fighting it for control of the tree.

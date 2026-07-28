@@ -12,4 +12,6 @@ featuredProject: true
 technology: ["angular", "design system", "design tokens", "knapsack", "primeng"]
 ---
 
-CSX
+CSX needed a consistent interface foundation across its internal tooling and the ShipCSX customer platform — two products with distinct brands and separate audiences.
+
+Rather than rebuild components from scratch, the system layers on PrimeNG and puts the engineering into theming. A three-tier token architecture runs from primitive scales through semantic roles down to component-level tokens: 922 tokens per theme across 23 components. Two brand presets ship from the same foundation, so both products stay internally consistent without forking the library. Everything is documented in Knapsack, and the library supports multiple Angular versions so teams can adopt on their own schedule.
