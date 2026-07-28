@@ -1,4 +1,4 @@
-import { Badge, Box, Heading, Link, SimpleGrid } from "@chakra-ui/react";
+import { Badge, Box, Heading, Link, SimpleGrid, Text } from "@chakra-ui/react";
 import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
 import React from "react";
 import styled from "styled-components";
@@ -33,12 +33,14 @@ export const Work: React.FC<WorkProps> = ({ data }) => {
         alt={client.clientName}
       />
 
-      <Box p="6">
-        {client.technology.map((tech, i) => (
-          <Badge key={i} px="2" colorScheme="teal" marginRight={2}>
-            {tech}
-          </Badge>
-        ))}
+      <Box p="6" flex="1" display="flex" flexDirection="column">
+        <Box>
+          {client.technology.map((tech, i) => (
+            <Badge key={i} px="2" colorScheme="teal" marginRight={2}>
+              {tech}
+            </Badge>
+          ))}
+        </Box>
 
         <Box
           mt="1"
@@ -61,6 +63,14 @@ export const Work: React.FC<WorkProps> = ({ data }) => {
         <Box>
           {client.project}
         </Box>
+
+        {client.description && (
+          <Box mt="auto" pt="4" mx="-6" mb="-6" px="6" py="4" bg="gray.100">
+            <Text fontSize="sm" color="gray.800" noOfLines={4}>
+              {client.description}
+            </Text>
+          </Box>
+        )}
       </Box>
     </>
   );
@@ -72,7 +82,7 @@ export const Work: React.FC<WorkProps> = ({ data }) => {
         {data.map((client, i) => (
           <div key={i}>
             {client.frontmatter.featuredProject && (
-              <Box height="100%" maxWidth="md" borderWidth="1px" borderRadius="sm" margin="0 auto">
+              <Box height="100%" maxWidth="md" borderWidth="1px" borderRadius="sm" margin="0 auto" display="flex" flexDirection="column" overflow="hidden">
                 {projectContent(client.frontmatter)}
               </Box>
             )}
