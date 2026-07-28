@@ -12,6 +12,7 @@ type DataProps = {
       frontmatter: {
         endDate: string;
         description: string;
+        overview: string;
         image: IGatsbyImageData;
         project: string;
         clientName: string;
@@ -60,6 +61,7 @@ export const query = graphql`
           url
           project
           description
+          overview
           featuredClient
           featuredProject
           technology
