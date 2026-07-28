@@ -62,6 +62,13 @@ const TechBadges: React.FC<{ technology: string[] }> = ({ technology }) => (
 export const Work: React.FC<WorkProps> = ({ data, title = "Work" }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [selected, setSelected] = React.useState<ClientProps | null>(null);
+  const featured = data.filter(({ frontmatter }) => frontmatter.featuredProject);
+  const gridColumns =
+    featured.length <= 1
+      ? { base: 1 }
+      : featured.length === 2
+        ? { base: 1, md: 2 }
+        : { base: 1, md: 2, lg: 3 };
 
   const openProject = (client: ClientProps) => {
     setSelected(client);
@@ -112,34 +119,35 @@ export const Work: React.FC<WorkProps> = ({ data, title = "Work" }) => {
   return (
     <section id={title.toLowerCase()}>
       <Heading as="h2" size="3xl" marginBottom={4}>{title}</Heading>
-      <SimpleGrid columns={3} spacing={10} minChildWidth={['280px', '425px']}>
-        {data.map((client, i) => (
-          <div key={i}>
-            {client.frontmatter.featuredProject && (
-              <Box
-                height="100%"
-                maxWidth="md"
-                borderWidth="1px"
-                borderRadius="sm"
-                marginRight="auto"
-                cursor="pointer"
-                transition="transform 0.15s ease, box-shadow 0.15s ease"
-                _hover={{ transform: "translateY(-4px)", boxShadow: "lg" }}
-                onClick={() => openProject(client.frontmatter)}
-                role="button"
-                tabIndex={0}
-                aria-label={`Read more about ${client.frontmatter.clientName}`}
-                onKeyDown={(e: React.KeyboardEvent) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    openProject(client.frontmatter);
-                  }
-                }}
-              >
-                {projectContent(client.frontmatter)}
-              </Box>
-            )}
-          </div>
+      <SimpleGrid
+        columns={gridColumns}
+        spacing={10}
+        maxW={featured.length <= 2 ? "4xl" : undefined}
+        mx={featured.length <= 2 ? "auto" : undefined}
+      >
+        {featured.map((client, i) => (
+          <Box
+            key={i}
+            height="100%"
+            width="100%"
+            borderWidth="1px"
+            borderRadius="sm"
+            cursor="pointer"
+            transition="transform 0.15s ease, box-shadow 0.15s ease"
+            _hover={{ transform: "translateY(-4px)", boxShadow: "lg" }}
+            onClick={() => openProject(client.frontmatter)}
+            role="button"
+            tabIndex={0}
+            aria-label={`Read more about ${client.frontmatter.clientName}`}
+            onKeyDown={(e: React.KeyboardEvent) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                openProject(client.frontmatter);
+              }
+            }}
+          >
+            {projectContent(client.frontmatter)}
+          </Box>
         ))}
       </SimpleGrid>
 
