@@ -20,7 +20,7 @@ import styled from "styled-components";
 type ClientProps = {
   description: string;
   overview: string;
-  image: IGatsbyImageData;
+  image?: IGatsbyImageData;
   project: string;
   clientName: string;
   url: string;
@@ -30,6 +30,7 @@ type ClientProps = {
 };
 
 type WorkProps = {
+  title?: string;
   data: {
     frontmatter: ClientProps;
   }[];
@@ -38,6 +39,14 @@ type WorkProps = {
 const StyledGatsbyImage = styled(GatsbyImage)`
   height: 275px;
   background-color: #e2e8f0;
+`;
+
+const FallbackCover = styled.div`
+  height: 275px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #81e6d9 0%, #4fd1c5 55%, #38b2ac 100%);
 `;
 
 const TechBadges: React.FC<{ technology: string[] }> = ({ technology }) => (
@@ -50,7 +59,7 @@ const TechBadges: React.FC<{ technology: string[] }> = ({ technology }) => (
   </>
 );
 
-export const Work: React.FC<WorkProps> = ({ data }) => {
+export const Work: React.FC<WorkProps> = ({ data, title = "Work" }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [selected, setSelected] = React.useState<ClientProps | null>(null);
 
@@ -61,10 +70,24 @@ export const Work: React.FC<WorkProps> = ({ data }) => {
 
   const projectContent: (client: ClientProps) => JSX.Element = (client: ClientProps) => (
     <>
-      <StyledGatsbyImage
-        image={getImage(client.image)}
-        alt={client.clientName}
-      />
+      {client.image ? (
+        <StyledGatsbyImage
+          image={getImage(client.image)}
+          alt={client.clientName}
+        />
+      ) : (
+        <FallbackCover>
+          <Box
+            fontSize="2xl"
+            fontWeight="bold"
+            color="teal.900"
+            textAlign="center"
+            px="6"
+          >
+            {client.clientName}
+          </Box>
+        </FallbackCover>
+      )}
 
       <Box p="6">
         <TechBadges technology={client.technology} />
@@ -87,8 +110,8 @@ export const Work: React.FC<WorkProps> = ({ data }) => {
   );
 
   return (
-    <section>
-      <Heading as="h2" size="3xl" marginBottom={4}>Work</Heading>
+    <section id={title.toLowerCase()}>
+      <Heading as="h2" size="3xl" marginBottom={4}>{title}</Heading>
       <SimpleGrid columns={3} spacing={10} minChildWidth={['280px', '425px']}>
         {data.map((client, i) => (
           <div key={i}>
@@ -98,7 +121,7 @@ export const Work: React.FC<WorkProps> = ({ data }) => {
                 maxWidth="md"
                 borderWidth="1px"
                 borderRadius="sm"
-                margin="0 auto"
+                marginRight="auto"
                 cursor="pointer"
                 transition="transform 0.15s ease, box-shadow 0.15s ease"
                 _hover={{ transform: "translateY(-4px)", boxShadow: "lg" }}

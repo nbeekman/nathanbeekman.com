@@ -1,4 +1,4 @@
-import { Heading, Stack, Text } from "@chakra-ui/react";
+import { Box, Heading, Stack, Text } from "@chakra-ui/react";
 import { PageProps, graphql } from "gatsby";
 import { IGatsbyImageData } from "gatsby-plugin-image";
 import React from "react";
@@ -6,25 +6,29 @@ import React from "react";
 import { Layout } from "../components/layout";
 import { Work } from "../components/work";
 
-type DataProps = {
-  allMdx: {
-    nodes: {
-      frontmatter: {
-        endDate: string;
-        description: string;
-        overview: string;
-        image: IGatsbyImageData;
-        project: string;
-        clientName: string;
-        url: string;
-        featuredClient: boolean;
-        featuredProject: boolean;
-        technology: string[];
-      }
-    }[]
-  }
-}
+type ProjectFrontmatter = {
+  endDate: string;
+  description: string;
+  overview: string;
+  image?: IGatsbyImageData;
+  project: string;
+  clientName: string;
+  url: string;
+  featuredClient: boolean;
+  featuredProject: boolean;
+  technology: string[];
+};
 
+type ProjectNodes = {
+  nodes: {
+    frontmatter: ProjectFrontmatter;
+  }[];
+};
+
+type DataProps = {
+  work: ProjectNodes;
+  fun: ProjectNodes;
+};
 
 const HomePage: React.FC<PageProps<DataProps>> = ({ data }) => {
   return (
@@ -41,7 +45,13 @@ const HomePage: React.FC<PageProps<DataProps>> = ({ data }) => {
         </Text>
       </Stack>
 
-      <Work data={data.allMdx.nodes} />
+      <Work data={data.work.nodes} />
+
+      {data.fun.nodes.length > 0 && (
+        <Box mt={[16, 20]}>
+          <Work title="Fun" data={data.fun.nodes} />
+        </Box>
+      )}
     </Layout>
   );
 };
@@ -50,9 +60,33 @@ export default HomePage;
 
 export const query = graphql`
   query workQuery {
-    allMdx(
+    work: allMdx(
       filter: {frontmatter: {category: {eq: "work"}}}
       sort: [{frontmatter: {featuredClient: DESC}}, {frontmatter: {endDate: DESC}}, {frontmatter: {clientName: DESC}}]
+    ) {
+      nodes {
+        frontmatter {
+          endDate
+          clientName
+          url
+          project
+          description
+          overview
+          featuredClient
+          featuredProject
+          technology
+          image {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+      }
+    }
+
+    fun: allMdx(
+      filter: {frontmatter: {category: {eq: "fun"}}}
+      sort: [{frontmatter: {endDate: DESC}}]
     ) {
       nodes {
         frontmatter {

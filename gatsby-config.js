@@ -63,6 +63,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `fun`,
+        path: `${__dirname}/src/content/fun`,
+      },
+    },
+    {
       resolve: `gatsby-omni-font-loader`,
       options: {
         mode: 'render-blocking',
