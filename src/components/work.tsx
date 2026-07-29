@@ -2,6 +2,8 @@ import {
   Badge,
   Box,
   Heading,
+  Icon,
+  IconProps,
   Link,
   Modal,
   ModalBody,
@@ -40,6 +42,19 @@ const StyledGatsbyImage = styled(GatsbyImage)`
   height: 275px;
   background-color: #e2e8f0;
 `;
+
+// Chakra's ExternalLinkIcon lives in @chakra-ui/icons, which isn't a dependency
+// here — inlined rather than pulling in a package for one glyph.
+const ExternalLinkIcon = (props: IconProps) => (
+  <Icon viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" {...props}>
+    <path
+      d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path d="M15 3h6v6M10 14 21 3" strokeLinecap="round" strokeLinejoin="round" />
+  </Icon>
+);
 
 const FallbackCover = styled.div`
   height: 275px;
@@ -157,8 +172,17 @@ export const Work: React.FC<WorkProps> = ({ data, title = "Work" }) => {
           <ModalHeader pb="2">
             <Box fontSize="2xl" fontWeight="bold">
               {selected?.url ? (
-                <Link href={selected.url} isExternal color="teal.700">
+                <Link
+                  href={selected.url}
+                  isExternal
+                  color="teal.700"
+                  display="inline-flex"
+                  alignItems="center"
+                  gap="2"
+                  aria-label={`${selected.clientName} (opens in a new tab)`}
+                >
                   {selected.clientName}
+                  <ExternalLinkIcon boxSize="0.7em" aria-hidden focusable="false" />
                 </Link>
               ) : (
                 selected?.clientName
