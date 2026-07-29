@@ -1,5 +1,5 @@
 ---
-clientName: "Street Coverage"
+clientName: "Cycling Denver"
 url: "https://cycling.nathanbeekman.com"
 project: "Ride Every Street"
 startDate: 2026-07-27
@@ -13,7 +13,9 @@ technology: ["react 19", "typescript", "deck.gl", "maplibre", "openstreetmap", "
 overview: |
   A completionist map for cyclists: every rideable street in the Denver metro, drawn from OpenStreetMap, with my own Strava history painted over the top. The percentage goes up as I ride. It has already changed how I plan routes, which was the whole point.
 
-  The metro core is 68,574 streets across nineteen municipalities and park boundaries — 12,346 km of pavement. All of it renders in the browser as a single deck.gl PathLayer fed binary typed arrays, with no geometry simplification and no web worker; measured at 51k paths, the network layer held 60fps while panning. Geometry is kept in Float64 for the coverage math but uploaded as Float32 offsets from a per-region origin, because raw Float32 longitude carries about 1.4 m of error at Denver's longitude — unusable next to a 25 m coverage radius.
+  The metro core is 68,574 streets across nineteen municipalities and park boundaries — 12,346 km of pavement, and 69,791 rendered paths once each street is split by which parts I've ridden. It all goes to the GPU as a single deck.gl PathLayer fed binary typed arrays, with no geometry simplification and no web worker. Geometry is kept in Float64 for the coverage math but uploaded as Float32 offsets from a per-region origin, because raw Float32 carries about 1.4 m of error at Denver's longitude — unusable next to a 25 m coverage radius.
+
+  Zooming out used to collapse the framerate to 6fps: with no culling, the entire network kept rasterizing even when the metro occupied a few hundred pixels. The fix took three attempts, and what it actually depended on was unglamorous — memoizing the binary data object and its accessors per region. deck.gl diffs layer props by reference, so building a fresh wrapper each render reads as new data and re-uploads all 613,505 vertices; culling rebuilds layers as the camera moves, which meant both earlier attempts cost more than the problem did. With the references held stable, viewport culling in a CompositeLayer works, and continental zoom went from 6fps to 29. Nine tests pin the reference identity specifically, because a value-equality test would pass while the bug quietly came back.
 
   Most of the real work turned out to be data, not rendering. Regions are incorporated places rather than counties, since a county boundary includes mountain roads nobody will ever ride and would put 100% permanently out of reach. That choice creates its own problem: the strip between Littleton and Morrison belongs to no municipality at all, so it needs an explicitly drawn polygon region to pick up S Kipling Pkwy and the C-470 Trail. Overpass also hands back any street with a single node inside a boundary, so 395 ways along shared borders were being claimed by two cities at once and inflating the denominator by 127 km before I caught it.
 
