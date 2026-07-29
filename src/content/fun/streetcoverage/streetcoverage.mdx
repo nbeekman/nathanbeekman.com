@@ -1,10 +1,10 @@
 ---
 clientName: "Street Coverage"
-url: ""
+url: "https://cycling.nathanbeekman.com"
 project: "Ride Every Street"
 startDate: 2026-07-27
 endDate: 2026-07-28
-description: "Ride every street in the Denver metro and watch the map fill in — 51,086 streets across 14 municipalities, rendered in the browser at 60fps and colored by where I've actually ridden."
+description: "Ride every street in the Denver metro and watch the map fill in — 68,574 streets across 19 municipalities, matched against my own Strava history and colored by where I've actually ridden."
 category: "fun"
 image: ./streetcoverage.png
 featuredClient: false
@@ -13,11 +13,11 @@ technology: ["react 19", "typescript", "deck.gl", "maplibre", "openstreetmap", "
 overview: |
   A completionist map for cyclists: every rideable street in the Denver metro, drawn from OpenStreetMap, with my own Strava history painted over the top. The percentage goes up as I ride. It has already changed how I plan routes, which was the whole point.
 
-  The metro core is 51,086 streets and 440,416 vertices across fourteen municipalities — 9,224 km of pavement. All of it renders in the browser as a single deck.gl PathLayer fed binary typed arrays, holding 60fps while panning with no geometry simplification and no web worker. Geometry is kept in Float64 for the coverage math but uploaded as Float32 offsets from a per-region origin, because raw Float32 longitude carries about 1.4 m of error at Denver's latitude — unusable next to a 25 m coverage radius.
+  The metro core is 68,574 streets across nineteen municipalities and park boundaries — 12,346 km of pavement. All of it renders in the browser as a single deck.gl PathLayer fed binary typed arrays, with no geometry simplification and no web worker; measured at 51k paths, the network layer held 60fps while panning. Geometry is kept in Float64 for the coverage math but uploaded as Float32 offsets from a per-region origin, because raw Float32 longitude carries about 1.4 m of error at Denver's longitude — unusable next to a 25 m coverage radius.
 
   Most of the real work turned out to be data, not rendering. Regions are incorporated places rather than counties, since a county boundary includes mountain roads nobody will ever ride and would put 100% permanently out of reach. That choice creates its own problem: the strip between Littleton and Morrison belongs to no municipality at all, so it needs an explicitly drawn polygon region to pick up S Kipling Pkwy and the C-470 Trail. Overpass also hands back any street with a single node inside a boundary, so 395 ways along shared borders were being claimed by two cities at once and inflating the denominator by 127 km before I caught it.
 
-  The ride importer reads a Strava bulk export — 225 activities, all of them FIT rather than GPX, with positions stored as semicircles the Garmin SDK declines to convert. It rejects Zwift rides (whose coordinates land in the Solomon Sea, some 13,000 km from Denver), rejects rides outside the fetched regions, and clips the first and last 500 m of every trace before anything touches disk, so home and work addresses never reach storage. 165 rides survived, 3,955 km after clipping.
+  The ride importer reads a Strava bulk export — 225 activities, all of them FIT rather than GPX, with positions stored as semicircles the Garmin SDK declines to convert. It rejects Zwift rides, whose coordinates land in the Solomon Sea some 13,000 km from Denver, and clips the first and last 500 m of every trace before anything touches disk, so home and work addresses never reach storage. 190 rides survived, 5,433 km after clipping. Rides outside the metro still draw wherever they happened — they simply score nothing, because there is no fetched network there to credit.
 
-  Built with React 19, Vite, deck.gl and MapLibre, with the geometry, coverage and import logic under test. It is a work in progress — the network and ride layers are done; the coverage math itself is the next milestone.
+  Coverage itself is a nearest-node match at a 25 m radius. Naively that is 1.8 × 10¹¹ distance tests, so ride points go into a uniform grid sized to the radius and each node checks only the nine cells that could possibly contain a match — the whole metro resolves in 0.7 s, with a test asserting the grid returns exactly what brute force does. The honest headline right now is 2.86%: 353 km of 12,346. Adding Aurora moved the denominator by 2,794 km and the covered distance by zero, which cost nearly a full point — a worse percentage and a truer map. Built with React 19, Vite, deck.gl and MapLibre, deployed on Netlify, with the geometry, coverage and import logic under test.
 ---
