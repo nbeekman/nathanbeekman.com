@@ -19,6 +19,8 @@ import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
 import React from "react";
 import styled from "styled-components";
 
+import { secondsSince, track } from "../utils/analytics";
+
 type ClientProps = {
   description: string;
   overview: string;
@@ -85,9 +87,38 @@ export const Work: React.FC<WorkProps> = ({ data, title = "Work" }) => {
         ? { base: 1, md: 2 }
         : { base: 1, md: 2, lg: 3 };
 
+  // Derived from the existing `title` prop rather than threading a new one through
+  // index.tsx, which renders this component twice.
+  const projectType = title.toLowerCase() === "fun" ? "fun" : "work";
+
+  const openedAt = React.useRef(0);
+  const didScroll = React.useRef(false);
+
   const openProject = (client: ClientProps) => {
     setSelected(client);
+    openedAt.current = Date.now();
+    didScroll.current = false;
     onOpen();
+
+    track("project_open", {
+      project_name: client.clientName,
+      project_type: projectType,
+      is_featured: client.featuredProject,
+    });
+  };
+
+  // Chakra routes the close button, overlay click, and Escape key all through onClose,
+  // so wrapping it covers every close path.
+  const closeProject = (): void => {
+    if (selected) {
+      track("project_modal_close", {
+        project_name: selected.clientName,
+        engaged_seconds: secondsSince(openedAt.current),
+        did_scroll: didScroll.current,
+      });
+    }
+
+    onClose();
   };
 
   const projectContent: (client: ClientProps) => JSX.Element = (client: ClientProps) => (
@@ -166,7 +197,7 @@ export const Work: React.FC<WorkProps> = ({ data, title = "Work" }) => {
         ))}
       </SimpleGrid>
 
-      <Modal isOpen={isOpen} onClose={onClose} size="2xl" scrollBehavior="inside" isCentered>
+      <Modal isOpen={isOpen} onClose={closeProject} size="2xl" scrollBehavior="inside" isCentered>
         <ModalOverlay />
         <ModalContent bg="gray.50" color="gray.800">
           <ModalHeader pb="2">
@@ -180,6 +211,12 @@ export const Work: React.FC<WorkProps> = ({ data, title = "Work" }) => {
                   alignItems="center"
                   gap="2"
                   aria-label={`${selected.clientName} (opens in a new tab)`}
+                  onClick={() =>
+                    track("project_link_click", {
+                      project_name: selected.clientName,
+                      link_url: selected.url,
+                    })
+                  }
                 >
                   {selected.clientName}
                   <ExternalLinkIcon boxSize="0.7em" aria-hidden focusable="false" />
@@ -194,7 +231,8 @@ export const Work: React.FC<WorkProps> = ({ data, title = "Work" }) => {
           </ModalHeader>
           <ModalCloseButton />
 
-          <ModalBody pb="8">
+          {/* scrollBehavior="inside" makes ModalBody the scroll container. */}
+          <ModalBody pb="8" onScroll={() => { didScroll.current = true; }}>
             <Box mb="4">
               {selected && <TechBadges technology={selected.technology} />}
             </Box>

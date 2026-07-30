@@ -2,6 +2,8 @@ import { StaticImage } from "gatsby-plugin-image";
 import React from "react";
 import styled from "styled-components";
 
+import { track } from "../utils/analytics";
+
 const FooterContainer = styled.footer`
   background-color: #BC412B;
   padding: 40px;
@@ -34,7 +36,12 @@ export const Footer: React.FC = () => {
     <FooterContainer>
       <IconsContainer>
         <Icons>
-          <a href="https://github.com/nbeekman">
+          <a
+            href="https://github.com/nbeekman"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => track("social_click", { network: "github" })}
+          >
             <StaticImage
               src="../images/github.png"
               alt="github link"
@@ -42,7 +49,12 @@ export const Footer: React.FC = () => {
               width={50}
             />
           </a>
-          <a href="https://linkedin.com/in/nathanbeekman/">
+          <a
+            href="https://linkedin.com/in/nathanbeekman/"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => track("social_click", { network: "linkedin" })}
+          >
             <StaticImage
               src="../images/linkedIn.png"
               alt="linkedin link"
