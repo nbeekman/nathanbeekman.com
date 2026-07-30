@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+import { useScrollDepth } from "../hooks/useScrollDepth";
 import { Footer } from "./footer";
 import { SEO } from "./seo";
 
@@ -24,13 +25,17 @@ interface LayoutProps {
   children: React.ReactNode;
 }
 
-export const Layout: React.FC<LayoutProps> = ({ children }) => (
-  <Main>
-    <TopBanner />
-    <SEO />
-    <ContentContainer>
-      {children}
-    </ContentContainer>
-    <Footer />
-  </Main>
-)
+export const Layout: React.FC<LayoutProps> = ({ children }) => {
+  useScrollDepth();
+
+  return (
+    <Main>
+      <TopBanner />
+      <SEO />
+      <ContentContainer>
+        {children}
+      </ContentContainer>
+      <Footer />
+    </Main>
+  )
+}

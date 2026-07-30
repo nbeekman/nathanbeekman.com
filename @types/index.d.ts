@@ -12,4 +12,10 @@ declare module '*.png' {
 }
 declare interface Window {
   docsearch: any;
+  // Injected by gatsby-plugin-google-gtag in production builds only, so optional.
+  gtag?: (
+    command: 'event',
+    eventName: string,
+    params?: Record<string, unknown>,
+  ) => void;
 }
