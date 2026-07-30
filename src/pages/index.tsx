@@ -14,6 +14,7 @@ type ProjectFrontmatter = {
   project: string;
   clientName: string;
   url: string;
+  repo?: string;
   featuredClient: boolean;
   featuredProject: boolean;
   technology: string[];
@@ -69,6 +70,7 @@ export const query = graphql`
           endDate
           clientName
           url
+          repo
           project
           description
           overview
@@ -93,6 +95,7 @@ export const query = graphql`
           endDate
           clientName
           url
+          repo
           project
           description
           overview

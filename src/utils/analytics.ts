@@ -16,7 +16,11 @@ type EventMap = {
     engaged_seconds: number;
     did_scroll: boolean;
   };
-  project_link_click: { project_name: string; link_url: string };
+  project_link_click: {
+    project_name: string;
+    link_url: string;
+    link_type: "site" | "repo";
+  };
   social_click: { network: "github" | "linkedin" };
   page_scroll_depth: { percent: 25 | 50 | 75 | 100 };
   outbound_click: { label: string; link_url: string };

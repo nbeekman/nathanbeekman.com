@@ -28,6 +28,7 @@ type ClientProps = {
   project: string;
   clientName: string;
   url: string;
+  repo?: string;
   featuredClient: boolean;
   featuredProject: boolean;
   technology: string[];
@@ -215,6 +216,7 @@ export const Work: React.FC<WorkProps> = ({ data, title = "Work" }) => {
                     track("project_link_click", {
                       project_name: selected.clientName,
                       link_url: selected.url,
+                      link_type: "site",
                     })
                   }
                 >
@@ -225,9 +227,37 @@ export const Work: React.FC<WorkProps> = ({ data, title = "Work" }) => {
                 selected?.clientName
               )}
             </Box>
-            <Text fontSize="md" fontWeight="normal" color="gray.600">
+            <Text fontSize="md" fontWeight="normal" color="gray.600" lineHeight="1.2">
               {selected?.project}
             </Text>
+
+            {/* lineHeight 1 on the wrapper: the default 1.5 line box would otherwise
+                add half-leading above the link that no negative margin cleanly removes. */}
+            {selected?.repo && (
+              <Box lineHeight="1">
+                <Link
+                  href={selected.repo}
+                  isExternal
+                  fontSize="xs"
+                  fontWeight="normal"
+                  color="teal.700"
+                  display="inline-flex"
+                  alignItems="center"
+                  gap="1"
+                  aria-label={`View source for ${selected.clientName} on GitHub (opens in a new tab)`}
+                  onClick={() =>
+                    track("project_link_click", {
+                      project_name: selected.clientName,
+                      link_url: selected.repo,
+                      link_type: "repo",
+                    })
+                  }
+                >
+                  View source
+                  <ExternalLinkIcon boxSize="0.9em" aria-hidden focusable="false" />
+                </Link>
+              </Box>
+            )}
           </ModalHeader>
           <ModalCloseButton />
 
