@@ -39,7 +39,7 @@ const HomePage: React.FC<PageProps<DataProps>> = ({ data }) => {
           Hey, I&#8217;m Nathan!
         </Heading>
         <Heading as="h2" size="lg" letterSpacing="normal">
-          Senior Frontend Software Engineer
+          Senior Software Engineer
         </Heading>
         <Text marginTop="0px !important" fontSize={[12, 14, 16]}>
           React | Angular | Design Systems | Mobile Apps
